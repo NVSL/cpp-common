@@ -1,0 +1,31 @@
+version: 2.1
+
+# Define the jobs we want to run for this project
+jobs:
+  build:
+    docker:
+      - image: cimg/base:2021.04
+    environment:
+      CXX: g++-10
+      LIBPUDDLES_NO_USERFAULTD: 1
+      LIBPUDDLES_PUDDLED_PORT: 2000
+    steps:
+      - checkout
+      - run: 
+          name: "Setup environment"
+          command: |
+            sudo apt-get update
+            sudo apt-get install build-essential gcc-10 g++-10 make
+            sudo apt-get install bsdmainutils
+      - run: 
+          name: "Build and test"
+          command: |
+            git submodule update --init
+            make -j2
+
+# Orchestrate our job run sequence
+workflows:
+  build:
+    jobs:
+      - build
+        

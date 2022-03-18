@@ -12,6 +12,7 @@
 #include <iostream>
 #include <optional>
 
+#include "nvsl/common.hh"
 #include "nvsl/envvars.hh"
 #include "nvsl/trace.hh"
 

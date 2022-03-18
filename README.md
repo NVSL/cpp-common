@@ -1,4 +1,9 @@
+[![CircleCI](https://circleci.com/gh/NVSL/cpp-common/tree/master.svg?style=svg&circle-token=303fcb99481c32f94d3eac4fd719a1ae524efc10)](https://circleci.com/gh/NVSL/cpp-common/tree/master)
+
 # Common macros and functions for C++
+
+Header only collection of common macro functionality for C++ 20.
+
 ## Usage
 Clone (as a submodule or otherwise):
 ```shell

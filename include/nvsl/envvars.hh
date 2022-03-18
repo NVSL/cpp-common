@@ -14,6 +14,7 @@
   static const char *name##_ENV __attribute__((unused)) = (char *)(#name)
 
 NVSL_DECL_ENV(NVSL_NO_STACKTRACE);
+NVSL_DECL_ENV(NVSL_LOG_WILDCARD);
 NVSL_DECL_ENV(NVSL_GEN_STATS);
 
 /**

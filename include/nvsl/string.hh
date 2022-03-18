@@ -32,7 +32,7 @@ namespace nvsl {
     } while (pos < str.length() && prev < str.length());
 
     if (assert_length != UINT64_MAX) {
-      LP_ASSERT(result.size() == assert_length, "Not enough tokens");
+      NVSL_ASSERT(result.size() == assert_length, "Not enough tokens");
     }
 
     return result;
