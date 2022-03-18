@@ -1,0 +1,4 @@
+<map id="nvsl::StatsScalar" name="nvsl::StatsScalar">
+<area shape="rect" id="node1" title="Represents a single stat with a name and a description." alt="" coords="5,80,128,107"/>
+<area shape="rect" id="node2" href="$classnvsl_1_1StatsBase.html" title="Base class for Stats." alt="" coords="9,5,124,32"/>
+</map>
