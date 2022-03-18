@@ -1,4 +1,7 @@
 # Common macros and functions for C++
+
+Header only collection of common macro functionality for C++ 20.
+
 ## Usage
 Clone (as a submodule or otherwise):
 ```shell
