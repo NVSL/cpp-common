@@ -29,10 +29,10 @@ World
 ```
 
 ## Available files
-- [string.hh](include/nvsl/string.hh)
-- [envvars.hh](include/nvsl/envvars.hh)
-- [error.hh](include/nvsl/error.hh)
-- [stats.hh](include/nvsl/stats.hh)
+- [string.hh](@ref string.hh)
+- [envvars.hh](@ref envvars.hh)
+- [error.hh](@ref error.hh)
+- [stats.hh](@ref stats.hh)
 
 ## Supported operations
 Docs available at [https://nvsl.github.io/cpp-common/docs/html/](nvsl.io/cpp-common/docs/html).
