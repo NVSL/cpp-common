@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['stats_2ehh_27',['stats.hh',['../stats_8hh.html',1,'']]],
-  ['string_2ehh_28',['string.hh',['../string_8hh.html',1,'']]]
+  ['envvars_2ehh_46',['envvars.hh',['../envvars_8hh.html',1,'']]],
+  ['error_2ehh_47',['error.hh',['../error_8hh.html',1,'']]]
 ];

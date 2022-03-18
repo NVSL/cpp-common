@@ -1,6 +1,10 @@
 <map id="include/nvsl/envvars.hh" name="include/nvsl/envvars.hh">
-<area shape="rect" id="node1" title="Declare environment variables and access their values." alt="" coords="5,5,164,32"/>
-<area shape="rect" id="node2" href="$error_8hh.html" title="Brief description here." alt="" coords="15,80,154,107"/>
-<area shape="rect" id="node3" href="$string_8hh.html" title="Usefult string functions. Mostly resemble python&#39;s." alt="" coords="12,155,157,181"/>
-<area shape="rect" id="node4" href="$stats_8hh.html" title="Class to collect stats, generate summary and latex code." alt="" coords="13,229,156,256"/>
+<area shape="rect" id="node1" title="Declare environment variables and access their values." alt="" coords="133,5,292,32"/>
+<area shape="rect" id="node2" href="$common_8hh.html" title="Common macros, constexpr and function definitions." alt="" coords="73,80,235,107"/>
+<area shape="rect" id="node4" href="$error_8hh.html" title="Brief description here." alt="" coords="203,155,342,181"/>
+<area shape="rect" id="node3" href="$common_8impl_8hh.html" title="Brief description here." alt="" coords="5,304,196,331"/>
+<area shape="rect" id="node5" href="$string_8hh.html" title="Usefult string functions. Mostly resemble python&#39;s." alt="" coords="209,229,355,256"/>
+<area shape="rect" id="node6" href="$stats_8hh.html" title="Class to collect stats, generate summary and latex code." alt="" coords="220,304,363,331"/>
+<area shape="rect" id="node8" href="$test__string_8cc.html" title="Test string functions." alt="" coords="387,304,521,331"/>
+<area shape="rect" id="node7" href="$test__stats_8cc.html" title="Test stats functions." alt="" coords="226,379,357,405"/>
 </map>

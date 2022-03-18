@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['split_32',['split',['../string_8hh.html#a0e3a85c1cd47991d7ac6cbca8e5edc63',1,'nvsl']]],
-  ['str_33',['str',['../classnvsl_1_1StatsScalar.html#a4789e129b01bb939222558f15a1d5a98',1,'nvsl::StatsScalar::str()'],['../classnvsl_1_1StatsNamedVector.html#ac8473f4efe3347c7e62eb35ea9725822',1,'nvsl::StatsNamedVector::str()']]]
+  ['is_5fprefix_58',['is_prefix',['../string_8hh.html#a900d1979c644a13641db4abefd6f8408',1,'nvsl']]],
+  ['is_5fsuffix_59',['is_suffix',['../string_8hh.html#a91a528df39384081bbcbccb413a4c63b',1,'nvsl']]]
 ];

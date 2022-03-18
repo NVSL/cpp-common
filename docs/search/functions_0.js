@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['avg_29',['avg',['../classnvsl_1_1StatsScalar.html#a34445b2b6098c546fef55b3c622e3fe8',1,'nvsl::StatsScalar']]]
+  ['_5f_5fattribute_5f_5f_53',['__attribute__',['../trace_8hh.html#adaf8fed90122a7890828406cd184a49b',1,'nvsl']]]
 ];
