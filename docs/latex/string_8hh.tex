@@ -1,0 +1,59 @@
+\hypertarget{string_8hh}{}\doxysection{include/nvsl/string.hh File Reference}
+\label{string_8hh}\index{include/nvsl/string.hh@{include/nvsl/string.hh}}
+
+
+Usefult string functions. Mostly resemble python\textquotesingle{}s.  
+
+
+{\ttfamily \#include \char`\"{}nvsl/error.\+hh\char`\"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for string.\+hh\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8hh__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{string_8hh__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{string_8hh_a0e3a85c1cd47991d7ac6cbca8e5edc63}\label{string_8hh_a0e3a85c1cd47991d7ac6cbca8e5edc63}} 
+auto \mbox{\hyperlink{string_8hh_a0e3a85c1cd47991d7ac6cbca8e5edc63}{nvsl\+::split}} (const std\+::string \&str, const std\+::string \&delim, size\+\_\+t assert\+\_\+length=U\+I\+N\+T64\+\_\+\+M\+AX)
+\begin{DoxyCompactList}\small\item\em Split string using a delimeter into a vector of strings. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{string_8hh_aa9dbdef486736406cbf91e7fb622ddb9}\label{string_8hh_aa9dbdef486736406cbf91e7fb622ddb9}} 
+auto \mbox{\hyperlink{string_8hh_aa9dbdef486736406cbf91e7fb622ddb9}{nvsl\+::zip}} (const std\+::vector$<$ std\+::string $>$ arr, const std\+::string join\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Concat all the elements of a string vector into a stingle string. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{string_8hh_a91a528df39384081bbcbccb413a4c63b}\label{string_8hh_a91a528df39384081bbcbccb413a4c63b}} 
+auto \mbox{\hyperlink{string_8hh_a91a528df39384081bbcbccb413a4c63b}{nvsl\+::is\+\_\+suffix}} (const std\+::string \&suffix, const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Checks if a string is suffix of another string. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{string_8hh_a900d1979c644a13641db4abefd6f8408}\label{string_8hh_a900d1979c644a13641db4abefd6f8408}} 
+auto \mbox{\hyperlink{string_8hh_a900d1979c644a13641db4abefd6f8408}{nvsl\+::is\+\_\+prefix}} (const std\+::string \&prefix, const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Checks if a string is prefix of another string. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{string_8hh_a3fea5f1af4ef69fb5b97daaa763ce91c}\label{string_8hh_a3fea5f1af4ef69fb5b97daaa763ce91c}} 
+const std\+::string {\bfseries nvsl\+::S} (const char $\ast$c)
+\item 
+\mbox{\Hypertarget{string_8hh_ab181f0e645a5de592c11f969ba29f08f}\label{string_8hh_ab181f0e645a5de592c11f969ba29f08f}} 
+std\+::string {\bfseries nvsl\+::ltrim} (const std\+::string \&str)
+\item 
+\mbox{\Hypertarget{string_8hh_a652b79d2841917752a9538abef608cfd}\label{string_8hh_a652b79d2841917752a9538abef608cfd}} 
+std\+::string {\bfseries nvsl\+::rtrim} (const std\+::string \&str)
+\item 
+\mbox{\Hypertarget{string_8hh_ae4a374cac4f5513cf8c39973e46999cb}\label{string_8hh_ae4a374cac4f5513cf8c39973e46999cb}} 
+std\+::string {\bfseries nvsl\+::trim} (const std\+::string \&str)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Usefult string functions. Mostly resemble python\textquotesingle{}s. 
+
+\begin{DoxyDate}{Date}
+Sep 23, 2021 
+\end{DoxyDate}

@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacenvsl" kind="namespace" language="C++">
+    <compoundname>nvsl</compoundname>
+    <innerclass refid="classnvsl_1_1StatsBase" prot="public">nvsl::StatsBase</innerclass>
+    <innerclass refid="classnvsl_1_1StatsCollection" prot="public">nvsl::StatsCollection</innerclass>
+    <innerclass refid="classnvsl_1_1StatsNamedVector" prot="public">nvsl::StatsNamedVector</innerclass>
+    <innerclass refid="classnvsl_1_1StatsScalar" prot="public">nvsl::StatsScalar</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="stats_8hh_1a99d4cfa8ab659d1a615314378f4a59b5" prot="public" static="no" mutable="no">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type>concept</type>
+        <definition>concept nvsl::Integral</definition>
+        <argsstring></argsstring>
+        <name>Integral</name>
+        <initializer>= std::is_integral&lt;T&gt;::value</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="23" column="11" bodyfile="include/nvsl/stats.hh" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="stats_8hh_1a41e0eb466a400edd8196aea2a530913a" prot="public" static="no" mutable="no">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename I</type>
+          </param>
+        </templateparamlist>
+        <type>concept</type>
+        <definition>concept nvsl::Averageable</definition>
+        <argsstring></argsstring>
+        <name>Averageable</name>
+        <initializer>= Integral&lt;I&gt; &amp;&amp; requires(T a, T b, I c) {
+    (a + b) / c;
+  }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="26" column="11" bodyfile="include/nvsl/stats.hh" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="string_8hh_1a0e3a85c1cd47991d7ac6cbca8e5edc63" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto nvsl::split</definition>
+        <argsstring>(const std::string &amp;str, const std::string &amp;delim, size_t assert_length=UINT64_MAX)</argsstring>
+        <name>split</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>delim</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>assert_length</declname>
+          <defval>UINT64_MAX</defval>
+        </param>
+        <briefdescription>
+<para>Split string using a delimeter into a vector of strings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/string.hh" line="17" column="15" bodyfile="include/nvsl/string.hh" bodystart="17" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="string_8hh_1aa9dbdef486736406cbf91e7fb622ddb9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto nvsl::zip</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; arr, const std::string join_str)</argsstring>
+        <name>zip</name>
+        <param>
+          <type>const std::vector&lt; std::string &gt;</type>
+          <declname>arr</declname>
+        </param>
+        <param>
+          <type>const std::string</type>
+          <declname>join_str</declname>
+        </param>
+        <briefdescription>
+<para>Concat all the elements of a string vector into a stingle string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/string.hh" line="42" column="15" bodyfile="include/nvsl/string.hh" bodystart="42" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="string_8hh_1a91a528df39384081bbcbccb413a4c63b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto nvsl::is_suffix</definition>
+        <argsstring>(const std::string &amp;suffix, const std::string &amp;str)</argsstring>
+        <name>is_suffix</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>suffix</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>Checks if a string is suffix of another string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/string.hh" line="57" column="15" bodyfile="include/nvsl/string.hh" bodystart="57" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="string_8hh_1a900d1979c644a13641db4abefd6f8408" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto nvsl::is_prefix</definition>
+        <argsstring>(const std::string &amp;prefix, const std::string &amp;str)</argsstring>
+        <name>is_prefix</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>Checks if a string is prefix of another string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/string.hh" line="64" column="15" bodyfile="include/nvsl/string.hh" bodystart="64" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="string_8hh_1a3fea5f1af4ef69fb5b97daaa763ce91c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string</type>
+        <definition>const std::string nvsl::S</definition>
+        <argsstring>(const char *c)</argsstring>
+        <name>S</name>
+        <param>
+          <type>const char *</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/string.hh" line="70" column="28" bodyfile="include/nvsl/string.hh" bodystart="70" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="string_8hh_1ab181f0e645a5de592c11f969ba29f08f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string nvsl::ltrim</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>ltrim</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/string.hh" line="72" column="22" bodyfile="include/nvsl/string.hh" bodystart="72" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="string_8hh_1a652b79d2841917752a9538abef608cfd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string nvsl::rtrim</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>rtrim</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/string.hh" line="80" column="22" bodyfile="include/nvsl/string.hh" bodystart="80" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="string_8hh_1ae4a374cac4f5513cf8c39973e46999cb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string nvsl::trim</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>trim</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/string.hh" line="88" column="22" bodyfile="include/nvsl/string.hh" bodystart="88" bodyend="88"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/nvsl/stats.hh" line="21" column="14"/>
+  </compounddef>
+</doxygen>

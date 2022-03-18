@@ -1,0 +1,6 @@
+<map id="include/nvsl/envvars.hh" name="include/nvsl/envvars.hh">
+<area shape="rect" id="node1" title="Declare environment variables and access their values." alt="" coords="5,5,164,32"/>
+<area shape="rect" id="node2" href="$error_8hh.html" title="Brief description here." alt="" coords="15,80,154,107"/>
+<area shape="rect" id="node3" href="$string_8hh.html" title="Usefult string functions. Mostly resemble python&#39;s." alt="" coords="12,155,157,181"/>
+<area shape="rect" id="node4" href="$stats_8hh.html" title="Class to collect stats, generate summary and latex code." alt="" coords="13,229,156,256"/>
+</map>

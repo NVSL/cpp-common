@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="README_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Common<sp/>macros<sp/>and<sp/>functions<sp/>for<sp/>C++</highlight></codeline>
+<codeline><highlight class="normal">##<sp/>Usage</highlight></codeline>
+<codeline><highlight class="normal">Clone<sp/>(as<sp/>a<sp/>submodule<sp/>or<sp/>otherwise):</highlight></codeline>
+<codeline><highlight class="normal">```shell</highlight></codeline>
+<codeline><highlight class="normal">git<sp/>submodule<sp/>add<sp/>git@github.com:nvsl/cpp-common.git<sp/>vendor/cpp-common</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Add<sp/>the<sp/>directory<sp/>as<sp/>a<sp/>include<sp/>directory:</highlight></codeline>
+<codeline><highlight class="normal">```shell</highlight></codeline>
+<codeline><highlight class="normal">g++<sp/>-iquote&quot;vendor/cpp-common/include&quot;<sp/>main.cc<sp/>-o<sp/>main</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Use<sp/>the<sp/>files<sp/>in<sp/>your<sp/>project:</highlight></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;nvsl/string.hh&quot;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;iostream&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">int<sp/>main()<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>for<sp/>(const<sp/>auto<sp/>tok<sp/>:<sp/>split(&quot;Hello!<sp/>World.&quot;,<sp/>&quot;<sp/>&quot;))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>tok<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Prints:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Hello!</highlight></codeline>
+<codeline><highlight class="normal">World</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Available<sp/>files</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[string.hh](include/nvsl/string.hh)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[envvars.hh](include/nvsl/envvars.hh)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[error.hh](include/nvsl/error.hh)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[stats.hh](include/nvsl/stats.hh)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Supported<sp/>operations</highlight></codeline>
+<codeline><highlight class="normal">Docs<sp/>available<sp/>at<sp/>[https://nvsl.github.io/cpp-common/docs/html/](nvsl.io/cpp-common/docs/html).</highlight></codeline>
+    </programlisting>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>

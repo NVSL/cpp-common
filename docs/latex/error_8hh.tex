@@ -1,0 +1,171 @@
+\hypertarget{error_8hh}{}\doxysection{include/nvsl/error.hh File Reference}
+\label{error_8hh}\index{include/nvsl/error.hh@{include/nvsl/error.hh}}
+
+
+Brief description here.  
+
+
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$optional$>$}\newline
+{\ttfamily \#include \char`\"{}nvsl/envvars.\+hh\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}nvsl/trace.\+hh\char`\"{}}\newline
+Include dependency graph for error.\+hh\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{error_8hh__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{error_8hh__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{error_8hh_af0149a0c69bdf7a7b1026a3dedadea64}{P\+E\+R\+R\+O\+R\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}}(errcode,  msg)
+\begin{DoxyCompactList}\small\item\em Convert errno to exception. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{error_8hh_a8272d1aa92bf36955a68a909ff3aedc4}{A\+S\+S\+E\+R\+T\+\_\+\+N\+O\+N\+\_\+\+N\+U\+LL}}(val,  msg)
+\begin{DoxyCompactList}\small\item\em Throw exception with msg if val is N\+U\+LL. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{error_8hh_a32cdf09c014ba93467a478992c2dcf2c}{N\+V\+S\+L\+\_\+\+E\+R\+R\+OR}}(msg)
+\begin{DoxyCompactList}\small\item\em Throw exception with msg if val is N\+U\+LL. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{error_8hh_a4698d010c606d5c13ac13e898759b194}{N\+V\+S\+L\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+L\+E\+AN}}(msg)
+\begin{DoxyCompactList}\small\item\em Exit with no debugging info. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{error_8hh_a8249e9b22ae9803110c2e9413ed9fb2c}{N\+V\+S\+L\+\_\+\+A\+S\+S\+E\+RT}}(cond,  msg)
+\begin{DoxyCompactList}\small\item\em Assert a condition w/ msg and generate backtrace on fail. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Brief description here. 
+
+\begin{DoxyDate}{Date}
+March 27, 2021 
+\end{DoxyDate}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{error_8hh_a8272d1aa92bf36955a68a909ff3aedc4}\label{error_8hh_a8272d1aa92bf36955a68a909ff3aedc4}} 
+\index{error.hh@{error.hh}!ASSERT\_NON\_NULL@{ASSERT\_NON\_NULL}}
+\index{ASSERT\_NON\_NULL@{ASSERT\_NON\_NULL}!error.hh@{error.hh}}
+\doxysubsubsection{\texorpdfstring{ASSERT\_NON\_NULL}{ASSERT\_NON\_NULL}}
+{\footnotesize\ttfamily \#define A\+S\+S\+E\+R\+T\+\_\+\+N\+O\+N\+\_\+\+N\+U\+LL(\begin{DoxyParamCaption}\item[{}]{val,  }\item[{}]{msg }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \textcolor{keywordflow}{do} \{                                 \(\backslash\)}
+\DoxyCodeLine{    DBGE << msg << std::endl;          \(\backslash\)}
+\DoxyCodeLine{    dump\_maps();                       \(\backslash\)}
+\DoxyCodeLine{    print\_trace();                     \(\backslash\)}
+\DoxyCodeLine{    if ((val) == NULL) \{               \(\backslash\)}
+\DoxyCodeLine{      throw std::runtime\_error((msg)); \(\backslash\)}
+\DoxyCodeLine{    \}                                  \(\backslash\)}
+\DoxyCodeLine{  \} \textcolor{keywordflow}{while} (0);}
+
+\end{DoxyCode}
+
+
+Throw exception with msg if val is N\+U\+LL. 
+
+
+
+Definition at line 30 of file error.\+hh.
+
+\mbox{\Hypertarget{error_8hh_a8249e9b22ae9803110c2e9413ed9fb2c}\label{error_8hh_a8249e9b22ae9803110c2e9413ed9fb2c}} 
+\index{error.hh@{error.hh}!NVSL\_ASSERT@{NVSL\_ASSERT}}
+\index{NVSL\_ASSERT@{NVSL\_ASSERT}!error.hh@{error.hh}}
+\doxysubsubsection{\texorpdfstring{NVSL\_ASSERT}{NVSL\_ASSERT}}
+{\footnotesize\ttfamily \#define N\+V\+S\+L\+\_\+\+A\+S\+S\+E\+RT(\begin{DoxyParamCaption}\item[{}]{cond,  }\item[{}]{msg }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \textcolor{keywordflow}{if} (!(cond)) [[unlikely]] \{                                      \(\backslash\)}
+\DoxyCodeLine{    DBGE << \_\_FILE\_\_ << \textcolor{stringliteral}{":"} << \_\_LINE\_\_ << \textcolor{stringliteral}{" Assertion `"} << \#cond \(\backslash\)}
+\DoxyCodeLine{         << \textcolor{stringliteral}{"' failed: "} << msg << std::endl;                      \(\backslash\)}
+\DoxyCodeLine{    if (not get\_env\_val(NVSL\_NO\_STACKTRACE\_ENV)) \{                 \(\backslash\)}
+\DoxyCodeLine{      nvsl::print\_trace();                                         \(\backslash\)}
+\DoxyCodeLine{    \}                                                              \(\backslash\)}
+\DoxyCodeLine{    exit(1);                                                       \(\backslash\)}
+\DoxyCodeLine{  \}}
+
+\end{DoxyCode}
+
+
+Assert a condition w/ msg and generate backtrace on fail. 
+
+
+
+Definition at line 72 of file error.\+hh.
+
+\mbox{\Hypertarget{error_8hh_a32cdf09c014ba93467a478992c2dcf2c}\label{error_8hh_a32cdf09c014ba93467a478992c2dcf2c}} 
+\index{error.hh@{error.hh}!NVSL\_ERROR@{NVSL\_ERROR}}
+\index{NVSL\_ERROR@{NVSL\_ERROR}!error.hh@{error.hh}}
+\doxysubsubsection{\texorpdfstring{NVSL\_ERROR}{NVSL\_ERROR}}
+{\footnotesize\ttfamily \#define N\+V\+S\+L\+\_\+\+E\+R\+R\+OR(\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \textcolor{keywordflow}{do} \{                                                   \(\backslash\)}
+\DoxyCodeLine{    DBGE << msg << std::endl;                            \(\backslash\)}
+\DoxyCodeLine{    if (not get\_env\_val(NVSL\_NO\_STACKTRACE\_ENV)) \{       \(\backslash\)}
+\DoxyCodeLine{      nvsl::dump\_maps();                                 \(\backslash\)}
+\DoxyCodeLine{      nvsl::print\_trace();                               \(\backslash\)}
+\DoxyCodeLine{    \}                                                    \(\backslash\)}
+\DoxyCodeLine{    exit(1);                                             \(\backslash\)}
+\DoxyCodeLine{  \} \textcolor{keywordflow}{while} (0);}
+
+\end{DoxyCode}
+
+
+Throw exception with msg if val is N\+U\+LL. 
+
+
+
+Definition at line 52 of file error.\+hh.
+
+\mbox{\Hypertarget{error_8hh_a4698d010c606d5c13ac13e898759b194}\label{error_8hh_a4698d010c606d5c13ac13e898759b194}} 
+\index{error.hh@{error.hh}!NVSL\_ERROR\_CLEAN@{NVSL\_ERROR\_CLEAN}}
+\index{NVSL\_ERROR\_CLEAN@{NVSL\_ERROR\_CLEAN}!error.hh@{error.hh}}
+\doxysubsubsection{\texorpdfstring{NVSL\_ERROR\_CLEAN}{NVSL\_ERROR\_CLEAN}}
+{\footnotesize\ttfamily \#define N\+V\+S\+L\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+L\+E\+AN(\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \textcolor{keywordflow}{do} \{                        \(\backslash\)}
+\DoxyCodeLine{    DBGE << msg << std::endl; \(\backslash\)}
+\DoxyCodeLine{    exit(1);                  \(\backslash\)}
+\DoxyCodeLine{  \} \textcolor{keywordflow}{while} (0);}
+
+\end{DoxyCode}
+
+
+Exit with no debugging info. 
+
+
+
+Definition at line 64 of file error.\+hh.
+
+\mbox{\Hypertarget{error_8hh_af0149a0c69bdf7a7b1026a3dedadea64}\label{error_8hh_af0149a0c69bdf7a7b1026a3dedadea64}} 
+\index{error.hh@{error.hh}!PERROR\_EXCEPTION@{PERROR\_EXCEPTION}}
+\index{PERROR\_EXCEPTION@{PERROR\_EXCEPTION}!error.hh@{error.hh}}
+\doxysubsubsection{\texorpdfstring{PERROR\_EXCEPTION}{PERROR\_EXCEPTION}}
+{\footnotesize\ttfamily \#define P\+E\+R\+R\+O\+R\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON(\begin{DoxyParamCaption}\item[{}]{errcode,  }\item[{}]{msg }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  ([]() \{ DBGE << msg << std::endl; \}(), nvsl::dump\_maps(),    \(\backslash\)}
+\DoxyCodeLine{   nvsl::print\_trace(),                                        \(\backslash\)}
+\DoxyCodeLine{   std::system\_error(errcode, std::generic\_category()))}
+
+\end{DoxyCode}
+
+
+Convert errno to exception. 
+
+
+
+Definition at line 24 of file error.\+hh.
+

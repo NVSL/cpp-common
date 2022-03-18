@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classnvsl_1_1StatsNamedVector" kind="class" language="C++" prot="public">
+    <compoundname>nvsl::StatsNamedVector</compoundname>
+    <basecompoundref refid="classnvsl_1_1StatsBase" prot="public" virt="non-virtual">nvsl::StatsBase</basecompoundref>
+    <includes refid="stats_8hh" local="no">stats.hh</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classnvsl_1_1StatsNamedVector_1a91c5f849b2ce2242658404b422f61a5a" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, <ref refid="classnvsl_1_1StatsScalar" kindref="compound">StatsScalar</ref> &gt;</type>
+        <definition>std::map&lt;std::string, StatsScalar&gt; nvsl::StatsNamedVector::vec</definition>
+        <argsstring></argsstring>
+        <name>vec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="161" column="14" bodyfile="include/nvsl/stats.hh" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnvsl_1_1StatsNamedVector_1a8cbe90e164e0a188ae3aa0470ebc17c6" prot="private" static="no" mutable="no">
+        <type>time_unit</type>
+        <definition>time_unit nvsl::StatsNamedVector::unit</definition>
+        <argsstring></argsstring>
+        <name>unit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="162" column="15" bodyfile="include/nvsl/stats.hh" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classnvsl_1_1StatsNamedVector_1a4e2562c219f9260227185a8189777c19" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>nvsl::StatsNamedVector::StatsNamedVector</definition>
+        <argsstring>(bool reg=true)</argsstring>
+        <name>StatsNamedVector</name>
+        <param>
+          <type>bool</type>
+          <declname>reg</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="165" column="5" bodyfile="include/nvsl/stats.hh" bodystart="165" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="classnvsl_1_1StatsNamedVector_1acd62eebcce3338d5d427c18130bd7c82" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nvsl::StatsNamedVector::init</definition>
+        <argsstring>(const std::string &amp;name, const std::string &amp;desc, time_unit unit=time_unit::any_unit)</argsstring>
+        <name>init</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>desc</declname>
+        </param>
+        <param>
+          <type>time_unit</type>
+          <declname>unit</declname>
+          <defval>time_unit::any_unit</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="167" column="10" bodyfile="include/nvsl/stats.hh" bodystart="167" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="classnvsl_1_1StatsNamedVector_1aee9fcf298c62030f04e7eeaf214f5fab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnvsl_1_1StatsScalar" kindref="compound">StatsScalar</ref> &amp;</type>
+        <definition>StatsScalar&amp; nvsl::StatsNamedVector::operator[]</definition>
+        <argsstring>(const std::string &amp;memb_name)</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>memb_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="173" column="17" bodyfile="include/nvsl/stats.hh" bodystart="173" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="classnvsl_1_1StatsNamedVector_1ac8473f4efe3347c7e62eb35ea9725822" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string nvsl::StatsNamedVector::str</definition>
+        <argsstring>() const override</argsstring>
+        <name>str</name>
+        <reimplements refid="classnvsl_1_1StatsBase_1ab74504bc8592acd99cc5aee9ed3d7a1a">str</reimplements>
+        <briefdescription>
+<para>Get the string representation of the stat. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="186" column="17" bodyfile="include/nvsl/stats.hh" bodystart="186" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="classnvsl_1_1StatsNamedVector_1afdc9e828b5fe47ef90cb949d46e80509" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string nvsl::StatsNamedVector::latex</definition>
+        <argsstring>(const std::string &amp;prefix=&quot;&quot;) const override</argsstring>
+        <name>latex</name>
+        <reimplements refid="classnvsl_1_1StatsBase_1a294cb951bba9074d37cdb32615eada5d">latex</reimplements>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>prefix</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="196" column="17" bodyfile="include/nvsl/stats.hh" bodystart="196" bodyend="204"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Represents a vector of stats, each with a name. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>nvsl::StatsNamedVector</label>
+        <link refid="classnvsl_1_1StatsNamedVector"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nvsl::StatsBase</label>
+        <link refid="classnvsl_1_1StatsBase"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>nvsl::StatsNamedVector</label>
+        <link refid="classnvsl_1_1StatsNamedVector"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nvsl::StatsBase</label>
+        <link refid="classnvsl_1_1StatsBase"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/nvsl/stats.hh" line="159" column="42" bodyfile="include/nvsl/stats.hh" bodystart="159" bodyend="205"/>
+    <listofallmembers>
+      <member refid="classnvsl_1_1StatsBase_1a0f8a4c99da71abb665e1a33eab819f6b" prot="public" virt="virtual"><scope>nvsl::StatsNamedVector</scope><name>avg</name></member>
+      <member refid="classnvsl_1_1StatsNamedVector_1acd62eebcce3338d5d427c18130bd7c82" prot="public" virt="non-virtual"><scope>nvsl::StatsNamedVector</scope><name>init</name></member>
+      <member refid="classnvsl_1_1StatsBase_1aa45d5c4a43fcd6d7acab51c50824db50" prot="public" virt="non-virtual" ambiguityscope="nvsl::StatsBase::"><scope>nvsl::StatsNamedVector</scope><name>init</name></member>
+      <member refid="classnvsl_1_1StatsNamedVector_1afdc9e828b5fe47ef90cb949d46e80509" prot="public" virt="virtual"><scope>nvsl::StatsNamedVector</scope><name>latex</name></member>
+      <member refid="classnvsl_1_1StatsNamedVector_1aee9fcf298c62030f04e7eeaf214f5fab" prot="public" virt="non-virtual"><scope>nvsl::StatsNamedVector</scope><name>operator[]</name></member>
+      <member refid="classnvsl_1_1StatsBase_1af9d0f3be91123a8b60077c8b5bb129a5" prot="protected" virt="non-virtual"><scope>nvsl::StatsNamedVector</scope><name>stat_desc</name></member>
+      <member refid="classnvsl_1_1StatsBase_1a3f8c5ea39c4de3953e3c581c3c6d1062" prot="protected" virt="non-virtual"><scope>nvsl::StatsNamedVector</scope><name>stat_name</name></member>
+      <member refid="classnvsl_1_1StatsBase_1ab872283115cfdc6231ce6a4f2d5c1579" prot="public" virt="non-virtual"><scope>nvsl::StatsNamedVector</scope><name>StatsBase</name></member>
+      <member refid="classnvsl_1_1StatsNamedVector_1a4e2562c219f9260227185a8189777c19" prot="public" virt="non-virtual"><scope>nvsl::StatsNamedVector</scope><name>StatsNamedVector</name></member>
+      <member refid="classnvsl_1_1StatsNamedVector_1ac8473f4efe3347c7e62eb35ea9725822" prot="public" virt="virtual"><scope>nvsl::StatsNamedVector</scope><name>str</name></member>
+      <member refid="classnvsl_1_1StatsNamedVector_1a8cbe90e164e0a188ae3aa0470ebc17c6" prot="private" virt="non-virtual"><scope>nvsl::StatsNamedVector</scope><name>unit</name></member>
+      <member refid="classnvsl_1_1StatsNamedVector_1a91c5f849b2ce2242658404b422f61a5a" prot="private" virt="non-virtual"><scope>nvsl::StatsNamedVector</scope><name>vec</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

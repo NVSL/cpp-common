@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classnvsl_1_1StatsBase" kind="class" language="C++" prot="public">
+    <compoundname>nvsl::StatsBase</compoundname>
+    <derivedcompoundref refid="classnvsl_1_1StatsNamedVector" prot="public" virt="non-virtual">nvsl::StatsNamedVector</derivedcompoundref>
+    <derivedcompoundref refid="classnvsl_1_1StatsScalar" prot="public" virt="non-virtual">nvsl::StatsScalar</derivedcompoundref>
+    <includes refid="stats_8hh" local="no">stats.hh</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classnvsl_1_1StatsBase_1a3f8c5ea39c4de3953e3c581c3c6d1062" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string nvsl::StatsBase::stat_name</definition>
+        <argsstring></argsstring>
+        <name>stat_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="42" column="17" bodyfile="include/nvsl/stats.hh" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnvsl_1_1StatsBase_1af9d0f3be91123a8b60077c8b5bb129a5" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string nvsl::StatsBase::stat_desc</definition>
+        <argsstring></argsstring>
+        <name>stat_desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="43" column="17" bodyfile="include/nvsl/stats.hh" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classnvsl_1_1StatsBase_1ab872283115cfdc6231ce6a4f2d5c1579" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>nvsl::StatsBase::StatsBase</definition>
+        <argsstring>(bool reg)</argsstring>
+        <name>StatsBase</name>
+        <param>
+          <type>bool</type>
+          <declname>reg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="46" column="5" bodyfile="include/nvsl/stats.hh" bodystart="46" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classnvsl_1_1StatsBase_1aa45d5c4a43fcd6d7acab51c50824db50" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nvsl::StatsBase::init</definition>
+        <argsstring>(const std::string &amp;name, const std::string &amp;desc)</argsstring>
+        <name>init</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>desc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="52" column="10" bodyfile="include/nvsl/stats.hh" bodystart="52" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classnvsl_1_1StatsBase_1a0f8a4c99da71abb665e1a33eab819f6b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>double</type>
+        <definition>virtual double nvsl::StatsBase::avg</definition>
+        <argsstring>() const</argsstring>
+        <name>avg</name>
+        <reimplementedby refid="classnvsl_1_1StatsScalar_1a34445b2b6098c546fef55b3c622e3fe8">avg</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="57" column="20" bodyfile="include/nvsl/stats.hh" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classnvsl_1_1StatsBase_1ab74504bc8592acd99cc5aee9ed3d7a1a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string nvsl::StatsBase::str</definition>
+        <argsstring>() const</argsstring>
+        <name>str</name>
+        <reimplementedby refid="classnvsl_1_1StatsScalar_1a4789e129b01bb939222558f15a1d5a98">str</reimplementedby>
+        <reimplementedby refid="classnvsl_1_1StatsNamedVector_1ac8473f4efe3347c7e62eb35ea9725822">str</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="58" column="25" bodyfile="include/nvsl/stats.hh" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classnvsl_1_1StatsBase_1a294cb951bba9074d37cdb32615eada5d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string nvsl::StatsBase::latex</definition>
+        <argsstring>(const std::string &amp;prefix=&quot;&quot;) const</argsstring>
+        <name>latex</name>
+        <reimplementedby refid="classnvsl_1_1StatsScalar_1a76bb640d1525807924609107addbfc2f">latex</reimplementedby>
+        <reimplementedby refid="classnvsl_1_1StatsNamedVector_1afdc9e828b5fe47ef90cb949d46e80509">latex</reimplementedby>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>prefix</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="59" column="25" bodyfile="include/nvsl/stats.hh" bodystart="59" bodyend="62"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Base class for Stats. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>nvsl::StatsNamedVector</label>
+        <link refid="classnvsl_1_1StatsNamedVector"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>nvsl::StatsScalar</label>
+        <link refid="classnvsl_1_1StatsScalar"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>nvsl::StatsBase</label>
+        <link refid="classnvsl_1_1StatsBase"/>
+      </node>
+    </inheritancegraph>
+    <location file="include/nvsl/stats.hh" line="40" column="18" bodyfile="include/nvsl/stats.hh" bodystart="40" bodyend="63"/>
+    <listofallmembers>
+      <member refid="classnvsl_1_1StatsBase_1a0f8a4c99da71abb665e1a33eab819f6b" prot="public" virt="virtual"><scope>nvsl::StatsBase</scope><name>avg</name></member>
+      <member refid="classnvsl_1_1StatsBase_1aa45d5c4a43fcd6d7acab51c50824db50" prot="public" virt="non-virtual"><scope>nvsl::StatsBase</scope><name>init</name></member>
+      <member refid="classnvsl_1_1StatsBase_1a294cb951bba9074d37cdb32615eada5d" prot="public" virt="virtual"><scope>nvsl::StatsBase</scope><name>latex</name></member>
+      <member refid="classnvsl_1_1StatsBase_1af9d0f3be91123a8b60077c8b5bb129a5" prot="protected" virt="non-virtual"><scope>nvsl::StatsBase</scope><name>stat_desc</name></member>
+      <member refid="classnvsl_1_1StatsBase_1a3f8c5ea39c4de3953e3c581c3c6d1062" prot="protected" virt="non-virtual"><scope>nvsl::StatsBase</scope><name>stat_name</name></member>
+      <member refid="classnvsl_1_1StatsBase_1ab872283115cfdc6231ce6a4f2d5c1579" prot="public" virt="non-virtual"><scope>nvsl::StatsBase</scope><name>StatsBase</name></member>
+      <member refid="classnvsl_1_1StatsBase_1ab74504bc8592acd99cc5aee9ed3d7a1a" prot="public" virt="virtual"><scope>nvsl::StatsBase</scope><name>str</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

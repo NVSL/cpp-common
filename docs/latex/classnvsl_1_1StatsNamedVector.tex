@@ -1,0 +1,69 @@
+\hypertarget{classnvsl_1_1StatsNamedVector}{}\doxysection{nvsl\+::Stats\+Named\+Vector Class Reference}
+\label{classnvsl_1_1StatsNamedVector}\index{nvsl::StatsNamedVector@{nvsl::StatsNamedVector}}
+
+
+Represents a vector of stats, each with a name.  
+
+
+
+
+{\ttfamily \#include $<$stats.\+hh$>$}
+
+
+
+Inheritance diagram for nvsl\+::Stats\+Named\+Vector\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{classnvsl_1_1StatsNamedVector__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for nvsl\+::Stats\+Named\+Vector\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{classnvsl_1_1StatsNamedVector__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classnvsl_1_1StatsNamedVector_a4e2562c219f9260227185a8189777c19}\label{classnvsl_1_1StatsNamedVector_a4e2562c219f9260227185a8189777c19}} 
+{\bfseries Stats\+Named\+Vector} (bool reg=true)
+\item 
+\mbox{\Hypertarget{classnvsl_1_1StatsNamedVector_acd62eebcce3338d5d427c18130bd7c82}\label{classnvsl_1_1StatsNamedVector_acd62eebcce3338d5d427c18130bd7c82}} 
+void {\bfseries init} (const std\+::string \&name, const std\+::string \&desc, time\+\_\+unit unit=time\+\_\+unit\+::any\+\_\+unit)
+\item 
+\mbox{\Hypertarget{classnvsl_1_1StatsNamedVector_aee9fcf298c62030f04e7eeaf214f5fab}\label{classnvsl_1_1StatsNamedVector_aee9fcf298c62030f04e7eeaf214f5fab}} 
+\mbox{\hyperlink{classnvsl_1_1StatsScalar}{Stats\+Scalar}} \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (const std\+::string \&memb\+\_\+name)
+\item 
+\mbox{\Hypertarget{classnvsl_1_1StatsNamedVector_ac8473f4efe3347c7e62eb35ea9725822}\label{classnvsl_1_1StatsNamedVector_ac8473f4efe3347c7e62eb35ea9725822}} 
+std\+::string \mbox{\hyperlink{classnvsl_1_1StatsNamedVector_ac8473f4efe3347c7e62eb35ea9725822}{str}} () const override
+\begin{DoxyCompactList}\small\item\em Get the string representation of the stat. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classnvsl_1_1StatsNamedVector_afdc9e828b5fe47ef90cb949d46e80509}\label{classnvsl_1_1StatsNamedVector_afdc9e828b5fe47ef90cb949d46e80509}} 
+std\+::string {\bfseries latex} (const std\+::string \&prefix=\char`\"{}\char`\"{}) const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classnvsl_1_1StatsNamedVector_a91c5f849b2ce2242658404b422f61a5a}\label{classnvsl_1_1StatsNamedVector_a91c5f849b2ce2242658404b422f61a5a}} 
+std\+::map$<$ std\+::string, \mbox{\hyperlink{classnvsl_1_1StatsScalar}{Stats\+Scalar}} $>$ {\bfseries vec}
+\item 
+\mbox{\Hypertarget{classnvsl_1_1StatsNamedVector_a8cbe90e164e0a188ae3aa0470ebc17c6}\label{classnvsl_1_1StatsNamedVector_a8cbe90e164e0a188ae3aa0470ebc17c6}} 
+time\+\_\+unit {\bfseries unit}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents a vector of stats, each with a name. 
+
+Definition at line 159 of file stats.\+hh.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/nvsl/\mbox{\hyperlink{stats_8hh}{stats.\+hh}}\end{DoxyCompactItemize}

@@ -1,0 +1,70 @@
+\hypertarget{stats_8hh}{}\doxysection{include/nvsl/stats.hh File Reference}
+\label{stats_8hh}\index{include/nvsl/stats.hh@{include/nvsl/stats.hh}}
+
+
+Class to collect stats, generate summary and latex code.  
+
+
+{\ttfamily \#include \char`\"{}nvsl/cpp-\/common.\+hh\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}nvsl/string.\+hh\char`\"{}}\newline
+{\ttfamily \#include $<$concepts$>$}\newline
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for stats.\+hh\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stats_8hh__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classnvsl_1_1StatsCollection}{nvsl\+::\+Stats\+Collection}}
+\item 
+class \mbox{\hyperlink{classnvsl_1_1StatsBase}{nvsl\+::\+Stats\+Base}}
+\begin{DoxyCompactList}\small\item\em Base class for Stats. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classnvsl_1_1StatsScalar}{nvsl\+::\+Stats\+Scalar}}
+\begin{DoxyCompactList}\small\item\em Represents a single stat with a name and a description. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classnvsl_1_1StatsNamedVector}{nvsl\+::\+Stats\+Named\+Vector}}
+\begin{DoxyCompactList}\small\item\em Represents a vector of stats, each with a name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{stats_8hh_a99d4cfa8ab659d1a615314378f4a59b5}\label{stats_8hh_a99d4cfa8ab659d1a615314378f4a59b5}} 
+{\footnotesize template$<$class T $>$ }\\concept {\bfseries nvsl\+::\+Integral} = std\+::is\+\_\+integral$<$T$>$\+::value
+\item 
+{\footnotesize template$<$typename T , typename I $>$ }\\concept {\bfseries nvsl\+::\+Averageable}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to collect stats, generate summary and latex code. 
+
+\begin{DoxyDate}{Date}
+novembre 17, 2021 
+\end{DoxyDate}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{stats_8hh_a41e0eb466a400edd8196aea2a530913a}\label{stats_8hh_a41e0eb466a400edd8196aea2a530913a}} 
+\index{stats.hh@{stats.hh}!Averageable@{Averageable}}
+\index{Averageable@{Averageable}!stats.hh@{stats.hh}}
+\doxysubsubsection{\texorpdfstring{Averageable}{Averageable}}
+{\footnotesize\ttfamily template$<$typename T , typename I $>$ \\
+concept nvsl\+::\+Averageable}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= Integral<I> \&\& requires(T a, T b, I c) \{}
+\DoxyCodeLine{    (a + b) / c;}
+\DoxyCodeLine{  \}}
+
+\end{DoxyCode}
+
+
+Definition at line 26 of file stats.\+hh.
+

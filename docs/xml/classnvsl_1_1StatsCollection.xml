@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classnvsl_1_1StatsCollection" kind="class" language="C++" prot="public">
+    <compoundname>nvsl::StatsCollection</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classnvsl_1_1StatsCollection_1ab95df81776a9cae737ce8c5d3104892e" prot="public" static="yes" mutable="no">
+        <type>std::vector&lt; <ref refid="classnvsl_1_1StatsBase" kindref="compound">StatsBase</ref> * &gt;</type>
+        <definition>std::vector&lt;StatsBase *&gt; nvsl::StatsCollection::stats</definition>
+        <argsstring></argsstring>
+        <name>stats</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="34" column="24" bodyfile="include/nvsl/stats.hh" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classnvsl_1_1StatsCollection_1a67df93e7dfbc6da5e7b2e7f9c83bd3a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>nvsl::StatsCollection::~StatsCollection</definition>
+        <argsstring>()</argsstring>
+        <name>~StatsCollection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="36" column="5" bodyfile="include/nvsl/stats.hh" bodystart="207" bodyend="215"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/nvsl/stats.hh" line="32" column="24" bodyfile="include/nvsl/stats.hh" bodystart="32" bodyend="37"/>
+    <listofallmembers>
+      <member refid="classnvsl_1_1StatsCollection_1ab95df81776a9cae737ce8c5d3104892e" prot="public" virt="non-virtual"><scope>nvsl::StatsCollection</scope><name>stats</name></member>
+      <member refid="classnvsl_1_1StatsCollection_1a67df93e7dfbc6da5e7b2e7f9c83bd3a3" prot="public" virt="non-virtual"><scope>nvsl::StatsCollection</scope><name>~StatsCollection</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

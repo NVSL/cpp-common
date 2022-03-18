@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classnvsl_1_1StatsBase" kind="class"><name>nvsl::StatsBase</name>
+    <member refid="classnvsl_1_1StatsBase_1a3f8c5ea39c4de3953e3c581c3c6d1062" kind="variable"><name>stat_name</name></member>
+    <member refid="classnvsl_1_1StatsBase_1af9d0f3be91123a8b60077c8b5bb129a5" kind="variable"><name>stat_desc</name></member>
+    <member refid="classnvsl_1_1StatsBase_1ab872283115cfdc6231ce6a4f2d5c1579" kind="function"><name>StatsBase</name></member>
+    <member refid="classnvsl_1_1StatsBase_1aa45d5c4a43fcd6d7acab51c50824db50" kind="function"><name>init</name></member>
+    <member refid="classnvsl_1_1StatsBase_1a0f8a4c99da71abb665e1a33eab819f6b" kind="function"><name>avg</name></member>
+    <member refid="classnvsl_1_1StatsBase_1ab74504bc8592acd99cc5aee9ed3d7a1a" kind="function"><name>str</name></member>
+    <member refid="classnvsl_1_1StatsBase_1a294cb951bba9074d37cdb32615eada5d" kind="function"><name>latex</name></member>
+  </compound>
+  <compound refid="classnvsl_1_1StatsCollection" kind="class"><name>nvsl::StatsCollection</name>
+    <member refid="classnvsl_1_1StatsCollection_1ab95df81776a9cae737ce8c5d3104892e" kind="variable"><name>stats</name></member>
+    <member refid="classnvsl_1_1StatsCollection_1a67df93e7dfbc6da5e7b2e7f9c83bd3a3" kind="function"><name>~StatsCollection</name></member>
+  </compound>
+  <compound refid="classnvsl_1_1StatsNamedVector" kind="class"><name>nvsl::StatsNamedVector</name>
+    <member refid="classnvsl_1_1StatsNamedVector_1a91c5f849b2ce2242658404b422f61a5a" kind="variable"><name>vec</name></member>
+    <member refid="classnvsl_1_1StatsNamedVector_1a8cbe90e164e0a188ae3aa0470ebc17c6" kind="variable"><name>unit</name></member>
+    <member refid="classnvsl_1_1StatsNamedVector_1a4e2562c219f9260227185a8189777c19" kind="function"><name>StatsNamedVector</name></member>
+    <member refid="classnvsl_1_1StatsNamedVector_1acd62eebcce3338d5d427c18130bd7c82" kind="function"><name>init</name></member>
+    <member refid="classnvsl_1_1StatsNamedVector_1aee9fcf298c62030f04e7eeaf214f5fab" kind="function"><name>operator[]</name></member>
+    <member refid="classnvsl_1_1StatsNamedVector_1ac8473f4efe3347c7e62eb35ea9725822" kind="function"><name>str</name></member>
+    <member refid="classnvsl_1_1StatsNamedVector_1afdc9e828b5fe47ef90cb949d46e80509" kind="function"><name>latex</name></member>
+  </compound>
+  <compound refid="classnvsl_1_1StatsScalar" kind="class"><name>nvsl::StatsScalar</name>
+    <member refid="classnvsl_1_1StatsScalar_1a9b04f26762316f2200dda9e6832ea177" kind="variable"><name>total</name></member>
+    <member refid="classnvsl_1_1StatsScalar_1a4862b8183938f9f6749e52f3cd5a3983" kind="variable"><name>count</name></member>
+    <member refid="classnvsl_1_1StatsScalar_1a3b9356ffef86e0613d446be6fe66a3b4" kind="variable"><name>is_time</name></member>
+    <member refid="classnvsl_1_1StatsScalar_1a98eaea46406d8a1fa9c6b18315c9afb9" kind="variable"><name>unit</name></member>
+    <member refid="classnvsl_1_1StatsScalar_1ab941928b5cd5c047d10c490e94bbf100" kind="function"><name>StatsScalar</name></member>
+    <member refid="classnvsl_1_1StatsScalar_1a9c9968284e746f56b041528a81761472" kind="function"><name>init</name></member>
+    <member refid="classnvsl_1_1StatsScalar_1a9e083fc3a19c7ddc9b61f7493fc39abf" kind="function"><name>operator+=</name></member>
+    <member refid="classnvsl_1_1StatsScalar_1a34445b2b6098c546fef55b3c622e3fe8" kind="function"><name>avg</name></member>
+    <member refid="classnvsl_1_1StatsScalar_1a4789e129b01bb939222558f15a1d5a98" kind="function"><name>str</name></member>
+    <member refid="classnvsl_1_1StatsScalar_1a76bb640d1525807924609107addbfc2f" kind="function"><name>latex</name></member>
+    <member refid="classnvsl_1_1StatsScalar_1ae7a5a50534b702488d90967791c6a921" kind="friend"><name>operator+</name></member>
+  </compound>
+  <compound refid="namespacenvsl" kind="namespace"><name>nvsl</name>
+    <member refid="stats_8hh_1a99d4cfa8ab659d1a615314378f4a59b5" kind="variable"><name>Integral</name></member>
+    <member refid="stats_8hh_1a41e0eb466a400edd8196aea2a530913a" kind="variable"><name>Averageable</name></member>
+    <member refid="string_8hh_1a0e3a85c1cd47991d7ac6cbca8e5edc63" kind="function"><name>split</name></member>
+    <member refid="string_8hh_1aa9dbdef486736406cbf91e7fb622ddb9" kind="function"><name>zip</name></member>
+    <member refid="string_8hh_1a91a528df39384081bbcbccb413a4c63b" kind="function"><name>is_suffix</name></member>
+    <member refid="string_8hh_1a900d1979c644a13641db4abefd6f8408" kind="function"><name>is_prefix</name></member>
+    <member refid="string_8hh_1a3fea5f1af4ef69fb5b97daaa763ce91c" kind="function"><name>S</name></member>
+    <member refid="string_8hh_1ab181f0e645a5de592c11f969ba29f08f" kind="function"><name>ltrim</name></member>
+    <member refid="string_8hh_1a652b79d2841917752a9538abef608cfd" kind="function"><name>rtrim</name></member>
+    <member refid="string_8hh_1ae4a374cac4f5513cf8c39973e46999cb" kind="function"><name>trim</name></member>
+  </compound>
+  <compound refid="doxy__main_8md" kind="file"><name>doxy_main.md</name>
+  </compound>
+  <compound refid="envvars_8hh" kind="file"><name>envvars.hh</name>
+    <member refid="envvars_8hh_1aec95338dbaa3f0334d3dc57076dfa836" kind="define"><name>NVSL_DECL_ENV</name></member>
+    <member refid="envvars_8hh_1a3b930a48bb1920e946b92d8c2c2a1379" kind="function"><name>NVSL_DECL_ENV</name></member>
+    <member refid="envvars_8hh_1a007ab336175861af97864d96e4c27f31" kind="function"><name>NVSL_DECL_ENV</name></member>
+    <member refid="envvars_8hh_1a2afc553f8cc6cc3e67686da0b424ffd9" kind="function"><name>get_env_val</name></member>
+    <member refid="envvars_8hh_1a8d9cd0fdee58cd85a317e9abdbbcc617" kind="function"><name>get_env_str</name></member>
+  </compound>
+  <compound refid="error_8hh" kind="file"><name>error.hh</name>
+    <member refid="error_8hh_1af0149a0c69bdf7a7b1026a3dedadea64" kind="define"><name>PERROR_EXCEPTION</name></member>
+    <member refid="error_8hh_1a8272d1aa92bf36955a68a909ff3aedc4" kind="define"><name>ASSERT_NON_NULL</name></member>
+    <member refid="error_8hh_1a32cdf09c014ba93467a478992c2dcf2c" kind="define"><name>NVSL_ERROR</name></member>
+    <member refid="error_8hh_1a4698d010c606d5c13ac13e898759b194" kind="define"><name>NVSL_ERROR_CLEAN</name></member>
+    <member refid="error_8hh_1a8249e9b22ae9803110c2e9413ed9fb2c" kind="define"><name>NVSL_ASSERT</name></member>
+    <member refid="error_8hh_1a69c37c99b50f2161521eb29cd0210df2" kind="function"><name>print_stuff__</name></member>
+    <member refid="error_8hh_1a343251c2d86b341950372a2927833724" kind="function"><name>PSTR</name></member>
+  </compound>
+  <compound refid="stats_8hh" kind="file"><name>stats.hh</name>
+  </compound>
+  <compound refid="string_8hh" kind="file"><name>string.hh</name>
+  </compound>
+  <compound refid="README_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="md_README" kind="page"><name>md_README</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_7ca9645c2f8a56048ab661d23b2dbaf6" kind="dir"><name>include/nvsl</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>

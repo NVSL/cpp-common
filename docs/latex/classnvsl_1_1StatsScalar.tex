@@ -1,0 +1,84 @@
+\hypertarget{classnvsl_1_1StatsScalar}{}\doxysection{nvsl\+::Stats\+Scalar Class Reference}
+\label{classnvsl_1_1StatsScalar}\index{nvsl::StatsScalar@{nvsl::StatsScalar}}
+
+
+Represents a single stat with a name and a description.  
+
+
+
+
+{\ttfamily \#include $<$stats.\+hh$>$}
+
+
+
+Inheritance diagram for nvsl\+::Stats\+Scalar\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{classnvsl_1_1StatsScalar__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for nvsl\+::Stats\+Scalar\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{classnvsl_1_1StatsScalar__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classnvsl_1_1StatsScalar_ab941928b5cd5c047d10c490e94bbf100}\label{classnvsl_1_1StatsScalar_ab941928b5cd5c047d10c490e94bbf100}} 
+{\bfseries Stats\+Scalar} (bool reg=true)
+\item 
+\mbox{\Hypertarget{classnvsl_1_1StatsScalar_a9c9968284e746f56b041528a81761472}\label{classnvsl_1_1StatsScalar_a9c9968284e746f56b041528a81761472}} 
+void {\bfseries init} (const std\+::string \&name, const std\+::string \&desc, bool is\+\_\+time=false, time\+\_\+unit unit=time\+\_\+unit\+::any\+\_\+unit)
+\item 
+\mbox{\Hypertarget{classnvsl_1_1StatsScalar_a9e083fc3a19c7ddc9b61f7493fc39abf}\label{classnvsl_1_1StatsScalar_a9e083fc3a19c7ddc9b61f7493fc39abf}} 
+\mbox{\hyperlink{classnvsl_1_1StatsScalar}{Stats\+Scalar}} \& {\bfseries operator+=} (const auto rhs)
+\item 
+\mbox{\Hypertarget{classnvsl_1_1StatsScalar_a34445b2b6098c546fef55b3c622e3fe8}\label{classnvsl_1_1StatsScalar_a34445b2b6098c546fef55b3c622e3fe8}} 
+double \mbox{\hyperlink{classnvsl_1_1StatsScalar_a34445b2b6098c546fef55b3c622e3fe8}{avg}} () const override
+\begin{DoxyCompactList}\small\item\em Get the average value per operation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classnvsl_1_1StatsScalar_a4789e129b01bb939222558f15a1d5a98}\label{classnvsl_1_1StatsScalar_a4789e129b01bb939222558f15a1d5a98}} 
+std\+::string \mbox{\hyperlink{classnvsl_1_1StatsScalar_a4789e129b01bb939222558f15a1d5a98}{str}} () const override
+\begin{DoxyCompactList}\small\item\em Get the string representation of the stat. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classnvsl_1_1StatsScalar_a76bb640d1525807924609107addbfc2f}\label{classnvsl_1_1StatsScalar_a76bb640d1525807924609107addbfc2f}} 
+std\+::string {\bfseries latex} (const std\+::string \&prefix=\char`\"{}\char`\"{}) const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classnvsl_1_1StatsScalar_a9b04f26762316f2200dda9e6832ea177}\label{classnvsl_1_1StatsScalar_a9b04f26762316f2200dda9e6832ea177}} 
+double {\bfseries total}
+\item 
+\mbox{\Hypertarget{classnvsl_1_1StatsScalar_a4862b8183938f9f6749e52f3cd5a3983}\label{classnvsl_1_1StatsScalar_a4862b8183938f9f6749e52f3cd5a3983}} 
+size\+\_\+t {\bfseries count}
+\item 
+\mbox{\Hypertarget{classnvsl_1_1StatsScalar_a3b9356ffef86e0613d446be6fe66a3b4}\label{classnvsl_1_1StatsScalar_a3b9356ffef86e0613d446be6fe66a3b4}} 
+bool {\bfseries is\+\_\+time}
+\item 
+\mbox{\Hypertarget{classnvsl_1_1StatsScalar_a98eaea46406d8a1fa9c6b18315c9afb9}\label{classnvsl_1_1StatsScalar_a98eaea46406d8a1fa9c6b18315c9afb9}} 
+time\+\_\+unit {\bfseries unit}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classnvsl_1_1StatsScalar_ae7a5a50534b702488d90967791c6a921}\label{classnvsl_1_1StatsScalar_ae7a5a50534b702488d90967791c6a921}} 
+\mbox{\hyperlink{classnvsl_1_1StatsScalar}{Stats\+Scalar}} {\bfseries operator+} (\mbox{\hyperlink{classnvsl_1_1StatsScalar}{Stats\+Scalar}} lhs, const auto rhs)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents a single stat with a name and a description. 
+
+Definition at line 66 of file stats.\+hh.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/nvsl/\mbox{\hyperlink{stats_8hh}{stats.\+hh}}\end{DoxyCompactItemize}

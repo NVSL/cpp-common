@@ -1,0 +1,249 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classnvsl_1_1StatsScalar" kind="class" language="C++" prot="public">
+    <compoundname>nvsl::StatsScalar</compoundname>
+    <basecompoundref refid="classnvsl_1_1StatsBase" prot="public" virt="non-virtual">nvsl::StatsBase</basecompoundref>
+    <includes refid="stats_8hh" local="no">stats.hh</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classnvsl_1_1StatsScalar_1a9b04f26762316f2200dda9e6832ea177" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double nvsl::StatsScalar::total</definition>
+        <argsstring></argsstring>
+        <name>total</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="68" column="12" bodyfile="include/nvsl/stats.hh" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnvsl_1_1StatsScalar_1a4862b8183938f9f6749e52f3cd5a3983" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t nvsl::StatsScalar::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="69" column="12" bodyfile="include/nvsl/stats.hh" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnvsl_1_1StatsScalar_1a3b9356ffef86e0613d446be6fe66a3b4" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool nvsl::StatsScalar::is_time</definition>
+        <argsstring></argsstring>
+        <name>is_time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="71" column="10" bodyfile="include/nvsl/stats.hh" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnvsl_1_1StatsScalar_1a98eaea46406d8a1fa9c6b18315c9afb9" prot="private" static="no" mutable="no">
+        <type>time_unit</type>
+        <definition>time_unit nvsl::StatsScalar::unit</definition>
+        <argsstring></argsstring>
+        <name>unit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="72" column="15" bodyfile="include/nvsl/stats.hh" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classnvsl_1_1StatsScalar_1ab941928b5cd5c047d10c490e94bbf100" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>nvsl::StatsScalar::StatsScalar</definition>
+        <argsstring>(bool reg=true)</argsstring>
+        <name>StatsScalar</name>
+        <param>
+          <type>bool</type>
+          <declname>reg</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="75" column="5" bodyfile="include/nvsl/stats.hh" bodystart="75" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classnvsl_1_1StatsScalar_1a9c9968284e746f56b041528a81761472" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nvsl::StatsScalar::init</definition>
+        <argsstring>(const std::string &amp;name, const std::string &amp;desc, bool is_time=false, time_unit unit=time_unit::any_unit)</argsstring>
+        <name>init</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>desc</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_time</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>time_unit</type>
+          <declname>unit</declname>
+          <defval>time_unit::any_unit</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="77" column="10" bodyfile="include/nvsl/stats.hh" bodystart="77" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classnvsl_1_1StatsScalar_1a9e083fc3a19c7ddc9b61f7493fc39abf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnvsl_1_1StatsScalar" kindref="compound">StatsScalar</ref> &amp;</type>
+        <definition>StatsScalar&amp; nvsl::StatsScalar::operator+=</definition>
+        <argsstring>(const auto rhs)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const auto</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="90" column="17" bodyfile="include/nvsl/stats.hh" bodystart="90" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classnvsl_1_1StatsScalar_1a34445b2b6098c546fef55b3c622e3fe8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>double</type>
+        <definition>double nvsl::StatsScalar::avg</definition>
+        <argsstring>() const override</argsstring>
+        <name>avg</name>
+        <reimplements refid="classnvsl_1_1StatsBase_1a0f8a4c99da71abb665e1a33eab819f6b">avg</reimplements>
+        <briefdescription>
+<para>Get the average value per operation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="97" column="12" bodyfile="include/nvsl/stats.hh" bodystart="97" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classnvsl_1_1StatsScalar_1a4789e129b01bb939222558f15a1d5a98" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string nvsl::StatsScalar::str</definition>
+        <argsstring>() const override</argsstring>
+        <name>str</name>
+        <reimplements refid="classnvsl_1_1StatsBase_1ab74504bc8592acd99cc5aee9ed3d7a1a">str</reimplements>
+        <briefdescription>
+<para>Get the string representation of the stat. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="100" column="17" bodyfile="include/nvsl/stats.hh" bodystart="100" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classnvsl_1_1StatsScalar_1a76bb640d1525807924609107addbfc2f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string nvsl::StatsScalar::latex</definition>
+        <argsstring>(const std::string &amp;prefix=&quot;&quot;) const override</argsstring>
+        <name>latex</name>
+        <reimplements refid="classnvsl_1_1StatsBase_1a294cb951bba9074d37cdb32615eada5d">latex</reimplements>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>prefix</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="115" column="17" bodyfile="include/nvsl/stats.hh" bodystart="115" bodyend="155"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classnvsl_1_1StatsScalar_1ae7a5a50534b702488d90967791c6a921" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>friend <ref refid="classnvsl_1_1StatsScalar" kindref="compound">StatsScalar</ref></type>
+        <definition>StatsScalar operator+</definition>
+        <argsstring>(StatsScalar lhs, const auto rhs)</argsstring>
+        <name>operator+</name>
+        <param>
+          <type><ref refid="classnvsl_1_1StatsScalar" kindref="compound">StatsScalar</ref></type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const auto</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/stats.hh" line="84" column="24" bodyfile="include/nvsl/stats.hh" bodystart="84" bodyend="88"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Represents a single stat with a name and a description. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>nvsl::StatsScalar</label>
+        <link refid="classnvsl_1_1StatsScalar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nvsl::StatsBase</label>
+        <link refid="classnvsl_1_1StatsBase"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>nvsl::StatsScalar</label>
+        <link refid="classnvsl_1_1StatsScalar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nvsl::StatsBase</label>
+        <link refid="classnvsl_1_1StatsBase"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/nvsl/stats.hh" line="66" column="37" bodyfile="include/nvsl/stats.hh" bodystart="66" bodyend="156"/>
+    <listofallmembers>
+      <member refid="classnvsl_1_1StatsScalar_1a34445b2b6098c546fef55b3c622e3fe8" prot="public" virt="virtual"><scope>nvsl::StatsScalar</scope><name>avg</name></member>
+      <member refid="classnvsl_1_1StatsScalar_1a4862b8183938f9f6749e52f3cd5a3983" prot="private" virt="non-virtual"><scope>nvsl::StatsScalar</scope><name>count</name></member>
+      <member refid="classnvsl_1_1StatsScalar_1a9c9968284e746f56b041528a81761472" prot="public" virt="non-virtual"><scope>nvsl::StatsScalar</scope><name>init</name></member>
+      <member refid="classnvsl_1_1StatsBase_1aa45d5c4a43fcd6d7acab51c50824db50" prot="public" virt="non-virtual" ambiguityscope="nvsl::StatsBase::"><scope>nvsl::StatsScalar</scope><name>init</name></member>
+      <member refid="classnvsl_1_1StatsScalar_1a3b9356ffef86e0613d446be6fe66a3b4" prot="private" virt="non-virtual"><scope>nvsl::StatsScalar</scope><name>is_time</name></member>
+      <member refid="classnvsl_1_1StatsScalar_1a76bb640d1525807924609107addbfc2f" prot="public" virt="virtual"><scope>nvsl::StatsScalar</scope><name>latex</name></member>
+      <member refid="classnvsl_1_1StatsScalar_1ae7a5a50534b702488d90967791c6a921" prot="public" virt="non-virtual"><scope>nvsl::StatsScalar</scope><name>operator+</name></member>
+      <member refid="classnvsl_1_1StatsScalar_1a9e083fc3a19c7ddc9b61f7493fc39abf" prot="public" virt="non-virtual"><scope>nvsl::StatsScalar</scope><name>operator+=</name></member>
+      <member refid="classnvsl_1_1StatsBase_1af9d0f3be91123a8b60077c8b5bb129a5" prot="protected" virt="non-virtual"><scope>nvsl::StatsScalar</scope><name>stat_desc</name></member>
+      <member refid="classnvsl_1_1StatsBase_1a3f8c5ea39c4de3953e3c581c3c6d1062" prot="protected" virt="non-virtual"><scope>nvsl::StatsScalar</scope><name>stat_name</name></member>
+      <member refid="classnvsl_1_1StatsBase_1ab872283115cfdc6231ce6a4f2d5c1579" prot="public" virt="non-virtual"><scope>nvsl::StatsScalar</scope><name>StatsBase</name></member>
+      <member refid="classnvsl_1_1StatsScalar_1ab941928b5cd5c047d10c490e94bbf100" prot="public" virt="non-virtual"><scope>nvsl::StatsScalar</scope><name>StatsScalar</name></member>
+      <member refid="classnvsl_1_1StatsScalar_1a4789e129b01bb939222558f15a1d5a98" prot="public" virt="virtual"><scope>nvsl::StatsScalar</scope><name>str</name></member>
+      <member refid="classnvsl_1_1StatsScalar_1a9b04f26762316f2200dda9e6832ea177" prot="private" virt="non-virtual"><scope>nvsl::StatsScalar</scope><name>total</name></member>
+      <member refid="classnvsl_1_1StatsScalar_1a98eaea46406d8a1fa9c6b18315c9afb9" prot="private" virt="non-virtual"><scope>nvsl::StatsScalar</scope><name>unit</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

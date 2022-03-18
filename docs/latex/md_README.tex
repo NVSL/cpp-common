@@ -1,0 +1,40 @@
+\hypertarget{md_README_autotoc_md5}{}\doxysection{Usage}\label{md_README_autotoc_md5}
+Clone (as a submodule or otherwise)\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git submodule add git@github.com:nvsl/cpp-\/common.git vendor/cpp-\/common}
+\end{DoxyCode}
+
+
+Add the directory as a include directory\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{g++ -\/iquote"vendor/cpp-\/common/include" main.cc -\/o main}
+\end{DoxyCode}
+
+
+Use the files in your project\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "\mbox{\hyperlink{string_8hh}{nvsl/string.hh}}"}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main() \{}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} tok : \mbox{\hyperlink{string_8hh_a0e3a85c1cd47991d7ac6cbca8e5edc63}{split}}(\textcolor{stringliteral}{"Hello! World."}, \textcolor{stringliteral}{" "})) \{}
+\DoxyCodeLine{        std::cout << tok << std::endl;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+Prints\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Hello!}
+\DoxyCodeLine{World}
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md6}{}\doxysection{Available files}\label{md_README_autotoc_md6}
+
+\begin{DoxyItemize}
+\item \href{include/nvsl/string.hh}{\texttt{ string.\+hh}}
+\item \href{include/nvsl/envvars.hh}{\texttt{ envvars.\+hh}}
+\item \href{include/nvsl/error.hh}{\texttt{ error.\+hh}}
+\item \href{include/nvsl/stats.hh}{\texttt{ stats.\+hh}}
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md7}{}\doxysection{Supported operations}\label{md_README_autotoc_md7}
+Docs available at \href{nvsl.io/cpp-common/docs/html}{\texttt{ https\+://nvsl.\+github.\+io/cpp-\/common/docs/html/}}. 

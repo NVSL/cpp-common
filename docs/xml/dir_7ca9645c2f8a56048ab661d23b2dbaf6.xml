@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_7ca9645c2f8a56048ab661d23b2dbaf6" kind="dir">
+    <compoundname>include/nvsl</compoundname>
+    <innerfile refid="envvars_8hh">envvars.hh</innerfile>
+    <innerfile refid="error_8hh">error.hh</innerfile>
+    <innerfile refid="stats_8hh">stats.hh</innerfile>
+    <innerfile refid="string_8hh">string.hh</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/nvsl/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="envvars_8hh" kind="file" language="C++">
+    <compoundname>envvars.hh</compoundname>
+    <includes local="no">string</includes>
+    <includedby refid="error_8hh" local="yes">include/nvsl/error.hh</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>string</label>
+      </node>
+      <node id="1">
+        <label>include/nvsl/envvars.hh</label>
+        <link refid="envvars_8hh"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="4">
+        <label>include/nvsl/stats.hh</label>
+        <link refid="stats_8hh"/>
+      </node>
+      <node id="2">
+        <label>include/nvsl/error.hh</label>
+        <link refid="error_8hh"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>include/nvsl/envvars.hh</label>
+        <link refid="envvars_8hh"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>include/nvsl/string.hh</label>
+        <link refid="string_8hh"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="envvars_8hh_1aec95338dbaa3f0334d3dc57076dfa836" prot="public" static="no">
+        <name>NVSL_DECL_ENV</name>
+        <param><defname>name</defname></param>
+        <initializer>static const char *name##_ENV __attribute__((unused)) = (char *)(#name)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/envvars.hh" line="13" column="9" bodyfile="include/nvsl/envvars.hh" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="envvars_8hh_1a3b930a48bb1920e946b92d8c2c2a1379" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NVSL_DECL_ENV</definition>
+        <argsstring>(NVSL_NO_STACKTRACE)</argsstring>
+        <name>NVSL_DECL_ENV</name>
+        <param>
+          <type>NVSL_NO_STACKTRACE</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/envvars.hh" line="16" column="1" declfile="include/nvsl/envvars.hh" declline="16" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="envvars_8hh_1a007ab336175861af97864d96e4c27f31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NVSL_DECL_ENV</definition>
+        <argsstring>(NVSL_GEN_STATS)</argsstring>
+        <name>NVSL_DECL_ENV</name>
+        <param>
+          <type>NVSL_GEN_STATS</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/envvars.hh" line="17" column="1" declfile="include/nvsl/envvars.hh" declline="17" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="envvars_8hh_1a2afc553f8cc6cc3e67686da0b424ffd9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool get_env_val</definition>
+        <argsstring>(const std::string var)</argsstring>
+        <name>get_env_val</name>
+        <param>
+          <type>const std::string</type>
+          <declname>var</declname>
+        </param>
+        <briefdescription>
+<para>Looks up a boolean like env var. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Behavior:<orderedlist>
+<listitem><para>Env variable missing -&gt; return false</para>
+</listitem><listitem><para>0 -&gt; return false</para>
+</listitem></orderedlist>
+<orderedlist>
+<listitem><para>1 -&gt; return true </para>
+</listitem></orderedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/envvars.hh" line="26" column="20" bodyfile="include/nvsl/envvars.hh" bodystart="26" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="envvars_8hh_1a8d9cd0fdee58cd85a317e9abdbbcc617" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string get_env_str</definition>
+        <argsstring>(const std::string var, const std::string def=&quot;&quot;)</argsstring>
+        <name>get_env_str</name>
+        <param>
+          <type>const std::string</type>
+          <declname>var</declname>
+        </param>
+        <param>
+          <type>const std::string</type>
+          <declname>def</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Looks up a string value from env var. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Behavior:<orderedlist>
+<listitem><para>Env variable missing -&gt; empty string <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">var</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Environment variable&apos;s name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">def</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Default value to return if unset </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+</listitem></orderedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/nvsl/envvars.hh" line="48" column="27" bodyfile="include/nvsl/envvars.hh" bodystart="48" bodyend="58"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Declare environment variables and access their values. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="date"><para>January 21, 2021 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>-*-<sp/>mode:<sp/>c++;<sp/>c-basic-offset:<sp/>2;<sp/>-*-</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NVSL_DECL_ENV(name)<sp/>\</highlight></codeline>
+<codeline lineno="14"><highlight class="preprocessor"><sp/><sp/>static<sp/>const<sp/>char<sp/>*name##_ENV<sp/>__attribute__((unused))<sp/>=<sp/>(char<sp/>*)(#name)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">NVSL_DECL_ENV(NVSL_NO_STACKTRACE);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">NVSL_DECL_ENV(NVSL_GEN_STATS);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>get_env_val(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>var)<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>result<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*val<sp/>=<sp/>std::getenv(var.c_str());</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(val<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>val_str<sp/>=<sp/>std::string(val);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(val_str<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;1&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>result<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::string<sp/>get_env_str(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>var,</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>def<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>std::string<sp/>result<sp/>=<sp/>def;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*val<sp/>=<sp/>std::getenv(var.c_str());</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(val<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>result<sp/>=<sp/>std::string(val);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="include/nvsl/envvars.hh"/>
+  </compounddef>
+</doxygen>
