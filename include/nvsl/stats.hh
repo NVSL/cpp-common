@@ -8,7 +8,6 @@
  * @brief  Class to collect stats, generate summary and latex code
  */
 
-#include "nvsl/cpp-common.hh"
 #include "nvsl/string.hh"
 
 #include <concepts>
@@ -45,7 +44,9 @@ namespace nvsl {
   public:
     StatsBase(bool reg) {
       if (reg) {
+#ifdef NVSL_ENABLE_COLLECTION_REGISTRATION
         StatsCollection::stats.push_back(this);
+#endif
       }
     };
 
