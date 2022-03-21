@@ -73,8 +73,7 @@ namespace nvsl {
       printf("Counter constructed\n");
     };
 
-    void init(const std::string &name, const std::string &desc,
-              bool is_time = false, time_unit unit = time_unit::any_unit) {
+    void init(const std::string &name, const std::string &desc) {
       StatsBase::init(name, desc);
     }
 
