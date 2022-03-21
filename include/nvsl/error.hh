@@ -80,7 +80,7 @@ static inline std::string print_stuff__(std::string msg, std::string dec) {
     exit(1);                                                       \
   }
 #else
-#define LP_ASSERT(cond, msg) \
+#define NVSL_ASSERT(cond, msg) \
   if (true) {                \
     (void)(cond);            \
   }

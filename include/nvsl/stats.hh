@@ -52,6 +52,7 @@ namespace nvsl {
 
     void init(const std::string &name, const std::string &desc) {
       this->stat_name = name;
+      printf("Stat name = %s\n", this->stat_name.c_str());
       this->stat_desc = desc;
     }
 
@@ -60,6 +61,49 @@ namespace nvsl {
     virtual std::string latex(const std::string &prefix = "") const {
       (void)prefix;
       return "";
+    }
+  };
+
+  /** @brief Counts operations */
+  class Counter : public StatsBase {
+  private:
+    size_t counter;
+  public:
+    Counter(bool reg = true) : StatsBase(reg), counter(0) {
+      printf("Counter constructed\n");
+    };
+
+    void init(const std::string &name, const std::string &desc,
+              bool is_time = false, time_unit unit = time_unit::any_unit) {
+      StatsBase::init(name, desc);
+    }
+
+    Counter& operator++() {
+      this->counter++;
+      return *this;
+    }
+
+    Counter operator++(int) {
+      Counter result = *this;
+      ++this->counter;
+
+      return result;
+    }
+
+    size_t value() const {
+      return this->counter;
+    }
+
+    /** @brief Get the string representation of the stat */
+    std::string str() const override {
+      std::stringstream ss;
+      ss << StatsBase::stat_name << " = " << value();
+
+      if (stat_desc != "") {
+        ss << " # " << stat_desc;
+      }
+
+      return ss.str();
     }
   };
 
