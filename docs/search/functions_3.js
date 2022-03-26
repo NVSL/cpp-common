@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['page_5fnum_60',['page_num',['../common_8hh.html#ae0755e19f2a38ed191f0353e7bba03a8',1,'nvsl']]]
+  ['init_79',['init',['../classnvsl_1_1StatsFreq.html#aea0f74c2128184968f7e2ebf039c5a67',1,'nvsl::StatsFreq']]],
+  ['is_5fprefix_80',['is_prefix',['../string_8hh.html#a900d1979c644a13641db4abefd6f8408',1,'nvsl']]],
+  ['is_5fsuffix_81',['is_suffix',['../string_8hh.html#a91a528df39384081bbcbccb413a4c63b',1,'nvsl']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cpp-common: include/nvsl/stats.hh Source File</title>
+<title>cpp-common: include/stats.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_7ca9645c2f8a56048ab661d23b2dbaf6.html">nvsl</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -74,43 +74,43 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="string_8hh.html">nvsl/string.hh</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;concepts&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span>nvsl {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  concept Integral = std::is_integral&lt;T&gt;::value;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> I&gt;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  concept Averageable = Integral&lt;I&gt; &amp;&amp; requires(T a, T b, I c) {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    (a + b) / c;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  };</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keyword">class </span>StatsBase;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classnvsl_1_1StatsCollection.html">   31</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classnvsl_1_1StatsCollection.html">StatsCollection</a> {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">static</span> std::vector&lt;StatsBase *&gt; stats;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    ~<a class="code" href="classnvsl_1_1StatsCollection.html">StatsCollection</a>();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  };</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classnvsl_1_1StatsBase.html">   39</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classnvsl_1_1StatsBase.html">StatsBase</a> {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    std::string stat_name;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    std::string stat_desc;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="classnvsl_1_1StatsBase.html">StatsBase</a>(<span class="keywordtype">bool</span> reg) {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <span class="keywordflow">if</span> (reg) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#ifdef NVSL_ENABLE_COLLECTION_REGISTRATION</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        StatsCollection::stats.push_back(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;cpp-common.hh&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="string_8hh.html">string.hh</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;concepts&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;numeric&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span>nvsl {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  concept Integral = std::is_integral&lt;T&gt;::value;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> I&gt;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  concept Averageable = Integral&lt;I&gt; &amp;&amp; requires(T a, T b, I c) {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    (a + b) / c;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  };</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keyword">class </span>StatsBase;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keyword">class </span>StatsCollection {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">static</span> std::vector&lt;StatsBase *&gt; stats;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    ~StatsCollection();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  };</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">class </span>StatsBase {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    std::string stat_name;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    std::string stat_desc;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    StatsBase(<span class="keywordtype">bool</span> reg) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <span class="keywordflow">if</span> (reg) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        StatsCollection::stats.push_back(<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      }</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    };</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
@@ -127,7 +127,7 @@ $(function() {
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  };</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classnvsl_1_1StatsScalar.html">   67</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classnvsl_1_1StatsScalar.html">StatsScalar</a> : <span class="keyword">public</span> <a class="code" href="classnvsl_1_1StatsBase.html">StatsBase</a> {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keyword">class </span>StatsScalar : <span class="keyword">public</span> StatsBase {</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">double</span> total;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">size_t</span> count;</div>
@@ -136,7 +136,7 @@ $(function() {
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    time_unit unit;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="classnvsl_1_1StatsScalar.html">StatsScalar</a>(<span class="keywordtype">bool</span> reg = <span class="keyword">true</span>) : <a class="code" href="classnvsl_1_1StatsBase.html">StatsBase</a>(reg), total(0), count(0){};</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    StatsScalar(<span class="keywordtype">bool</span> reg = <span class="keyword">true</span>) : StatsBase(reg), total(0), count(0){};</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> init(<span class="keyword">const</span> std::string &amp;name, <span class="keyword">const</span> std::string &amp;desc,</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;              <span class="keywordtype">bool</span> is_time = <span class="keyword">false</span>, time_unit unit = time_unit::any_unit) {</div>
@@ -145,13 +145,13 @@ $(function() {
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      this-&gt;unit = unit;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">friend</span> <a class="code" href="classnvsl_1_1StatsScalar.html">StatsScalar</a> operator+(<a class="code" href="classnvsl_1_1StatsScalar.html">StatsScalar</a> lhs, <span class="keyword">const</span> <span class="keyword">auto</span> rhs) {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">friend</span> StatsScalar operator+(StatsScalar lhs, <span class="keyword">const</span> <span class="keyword">auto</span> rhs) {</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      lhs.total += rhs;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      lhs.count++;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      <span class="keywordflow">return</span> lhs;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <a class="code" href="classnvsl_1_1StatsScalar.html">StatsScalar</a> &amp;operator+=(<span class="keyword">const</span> <span class="keyword">auto</span> rhs) {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    StatsScalar &amp;operator+=(<span class="keyword">const</span> <span class="keyword">auto</span> rhs) {</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      this-&gt;total += rhs;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      this-&gt;count++;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
@@ -217,13 +217,13 @@ $(function() {
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    };</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  };</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
-<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="classnvsl_1_1StatsNamedVector.html">  160</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classnvsl_1_1StatsNamedVector.html">StatsNamedVector</a> : <span class="keyword">public</span> <a class="code" href="classnvsl_1_1StatsBase.html">StatsBase</a> {</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  <span class="keyword">class </span>StatsNamedVector : <span class="keyword">public</span> StatsBase {</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    std::map&lt;std::string, StatsScalar&gt; vec;</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    time_unit unit;</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <a class="code" href="classnvsl_1_1StatsNamedVector.html">StatsNamedVector</a>(<span class="keywordtype">bool</span> reg = <span class="keyword">true</span>) : <a class="code" href="classnvsl_1_1StatsBase.html">StatsBase</a>(reg){};</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    StatsNamedVector(<span class="keywordtype">bool</span> reg = <span class="keyword">true</span>) : StatsBase(reg){};</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">void</span> init(<span class="keyword">const</span> std::string &amp;name, <span class="keyword">const</span> std::string &amp;desc,</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;              time_unit unit = time_unit::any_unit) {</div>
@@ -231,7 +231,7 @@ $(function() {
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;      this-&gt;unit = unit;</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    }</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <a class="code" href="classnvsl_1_1StatsScalar.html">StatsScalar</a> &amp;operator[](<span class="keyword">const</span> std::string &amp;memb_name) {</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    StatsScalar &amp;operator[](<span class="keyword">const</span> std::string &amp;memb_name) {</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> memb = this-&gt;vec.find(memb_name);</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> exists = memb != this-&gt;vec.end();</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
@@ -278,12 +278,8 @@ $(function() {
 <div class="ttc" id="astring_8hh_html_aa9dbdef486736406cbf91e7fb622ddb9"><div class="ttname"><a href="string_8hh.html#aa9dbdef486736406cbf91e7fb622ddb9">nvsl::zip</a></div><div class="ttdeci">auto zip(const std::vector&lt; std::string &gt; arr, const std::string join_str)</div><div class="ttdoc">Concat all the elements of a string vector into a stingle string.</div><div class="ttdef"><b>Definition:</b> <a href="string_8hh_source.html#l00042">string.hh:42</a></div></div>
 <div class="ttc" id="aclassnvsl_1_1StatsNamedVector_html_ac8473f4efe3347c7e62eb35ea9725822"><div class="ttname"><a href="classnvsl_1_1StatsNamedVector.html#ac8473f4efe3347c7e62eb35ea9725822">nvsl::StatsNamedVector::str</a></div><div class="ttdeci">std::string str() const override</div><div class="ttdoc">Get the string representation of the stat.</div><div class="ttdef"><b>Definition:</b> <a href="stats_8hh_source.html#l00187">stats.hh:187</a></div></div>
 <div class="ttc" id="aclassnvsl_1_1StatsScalar_html_a34445b2b6098c546fef55b3c622e3fe8"><div class="ttname"><a href="classnvsl_1_1StatsScalar.html#a34445b2b6098c546fef55b3c622e3fe8">nvsl::StatsScalar::avg</a></div><div class="ttdeci">double avg() const override</div><div class="ttdoc">Get the average value per operation.</div><div class="ttdef"><b>Definition:</b> <a href="stats_8hh_source.html#l00098">stats.hh:98</a></div></div>
-<div class="ttc" id="aclassnvsl_1_1StatsBase_html"><div class="ttname"><a href="classnvsl_1_1StatsBase.html">nvsl::StatsBase</a></div><div class="ttdoc">Base class for Stats.</div><div class="ttdef"><b>Definition:</b> <a href="stats_8hh_source.html#l00039">stats.hh:39</a></div></div>
-<div class="ttc" id="aclassnvsl_1_1StatsCollection_html"><div class="ttname"><a href="classnvsl_1_1StatsCollection.html">nvsl::StatsCollection</a></div><div class="ttdef"><b>Definition:</b> <a href="stats_8hh_source.html#l00031">stats.hh:31</a></div></div>
 <div class="ttc" id="astring_8hh_html"><div class="ttname"><a href="string_8hh.html">string.hh</a></div><div class="ttdoc">Usefult string functions. Mostly resemble python's.</div></div>
 <div class="ttc" id="aclassnvsl_1_1StatsScalar_html_a4789e129b01bb939222558f15a1d5a98"><div class="ttname"><a href="classnvsl_1_1StatsScalar.html#a4789e129b01bb939222558f15a1d5a98">nvsl::StatsScalar::str</a></div><div class="ttdeci">std::string str() const override</div><div class="ttdoc">Get the string representation of the stat.</div><div class="ttdef"><b>Definition:</b> <a href="stats_8hh_source.html#l00101">stats.hh:101</a></div></div>
-<div class="ttc" id="aclassnvsl_1_1StatsScalar_html"><div class="ttname"><a href="classnvsl_1_1StatsScalar.html">nvsl::StatsScalar</a></div><div class="ttdoc">Represents a single stat with a name and a description.</div><div class="ttdef"><b>Definition:</b> <a href="stats_8hh_source.html#l00067">stats.hh:67</a></div></div>
-<div class="ttc" id="aclassnvsl_1_1StatsNamedVector_html"><div class="ttname"><a href="classnvsl_1_1StatsNamedVector.html">nvsl::StatsNamedVector</a></div><div class="ttdoc">Represents a vector of stats, each with a name.</div><div class="ttdef"><b>Definition:</b> <a href="stats_8hh_source.html#l00160">stats.hh:160</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -1,8 +1,9 @@
 <map id="include/nvsl/error.hh" name="include/nvsl/error.hh">
-<area shape="rect" id="node1" title="Brief description here." alt="" coords="222,5,361,32"/>
-<area shape="rect" id="node2" href="$string_8hh.html" title="Usefult string functions. Mostly resemble python&#39;s." alt="" coords="219,80,364,107"/>
-<area shape="rect" id="node3" href="$common_8impl_8hh.html" title="Brief description here." alt="" coords="5,155,196,181"/>
-<area shape="rect" id="node4" href="$stats_8hh.html" title="Class to collect stats, generate summary and latex code." alt="" coords="220,155,363,181"/>
-<area shape="rect" id="node6" href="$test__string_8cc.html" title="Test string functions." alt="" coords="387,155,521,181"/>
-<area shape="rect" id="node5" href="$test__stats_8cc.html" title="Test stats functions." alt="" coords="226,229,357,256"/>
+<area shape="rect" id="node1" title="Brief description here." alt="" coords="102,5,241,32"/>
+<area shape="rect" id="node2" href="$nvsl_2stats_8hh.html" title="Class to collect stats, generate summary and latex code." alt="" coords="5,155,148,181"/>
+<area shape="rect" id="node4" href="$string_8hh.html" title="Usefult string functions. Mostly resemble python&#39;s." alt="" coords="195,80,340,107"/>
+<area shape="rect" id="node3" href="$test__stats_8cc.html" title="Test stats functions." alt="" coords="11,229,142,256"/>
+<area shape="rect" id="node5" href="$common_8impl_8hh.html" title="Brief description here." alt="" coords="172,155,363,181"/>
+<area shape="rect" id="node6" href="$stats_8hh.html" title="Class to collect stats, generate summary and latex code." alt="" coords="387,155,502,181"/>
+<area shape="rect" id="node7" href="$test__string_8cc.html" title="Test string functions." alt="" coords="527,155,661,181"/>
 </map>

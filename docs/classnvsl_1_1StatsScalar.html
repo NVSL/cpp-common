@@ -79,7 +79,7 @@ $(function() {
 <p>Represents a single stat with a name and a description.  
  <a href="classnvsl_1_1StatsScalar.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="stats_8hh_source.html">stats.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="nvsl_2stats_8hh_source.html">stats.hh</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for nvsl::StatsScalar:</div>
 <div class="dyncontent">
@@ -121,7 +121,33 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <tr class="memitem:a76bb640d1525807924609107addbfc2f"><td class="memItemLeft" align="right" valign="top"><a id="a76bb640d1525807924609107addbfc2f"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>latex</b> (const std::string &amp;prefix=&quot;&quot;) const override</td></tr>
 <tr class="separator:a76bb640d1525807924609107addbfc2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab941928b5cd5c047d10c490e94bbf100"><td class="memItemLeft" align="right" valign="top"><a id="ab941928b5cd5c047d10c490e94bbf100"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>StatsScalar</b> (bool reg=true)</td></tr>
+<tr class="separator:ab941928b5cd5c047d10c490e94bbf100"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c9968284e746f56b041528a81761472"><td class="memItemLeft" align="right" valign="top"><a id="a9c9968284e746f56b041528a81761472"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (const std::string &amp;name, const std::string &amp;desc, bool is_time=false, time_unit unit=time_unit::any_unit)</td></tr>
+<tr class="separator:a9c9968284e746f56b041528a81761472"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e083fc3a19c7ddc9b61f7493fc39abf"><td class="memItemLeft" align="right" valign="top"><a id="a9e083fc3a19c7ddc9b61f7493fc39abf"></a>
+<a class="el" href="classnvsl_1_1StatsScalar.html">StatsScalar</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (const auto rhs)</td></tr>
+<tr class="separator:a9e083fc3a19c7ddc9b61f7493fc39abf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34445b2b6098c546fef55b3c622e3fe8"><td class="memItemLeft" align="right" valign="top"><a id="a34445b2b6098c546fef55b3c622e3fe8"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnvsl_1_1StatsScalar.html#a34445b2b6098c546fef55b3c622e3fe8">avg</a> () const override</td></tr>
+<tr class="memdesc:a34445b2b6098c546fef55b3c622e3fe8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the average value per operation. <br /></td></tr>
+<tr class="separator:a34445b2b6098c546fef55b3c622e3fe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4789e129b01bb939222558f15a1d5a98"><td class="memItemLeft" align="right" valign="top"><a id="a4789e129b01bb939222558f15a1d5a98"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnvsl_1_1StatsScalar.html#a4789e129b01bb939222558f15a1d5a98">str</a> () const override</td></tr>
+<tr class="memdesc:a4789e129b01bb939222558f15a1d5a98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the string representation of the stat. <br /></td></tr>
+<tr class="separator:a4789e129b01bb939222558f15a1d5a98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76bb640d1525807924609107addbfc2f"><td class="memItemLeft" align="right" valign="top"><a id="a76bb640d1525807924609107addbfc2f"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>latex</b> (const std::string &amp;prefix=&quot;&quot;) const override</td></tr>
+<tr class="separator:a76bb640d1525807924609107addbfc2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classnvsl_1_1StatsBase"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classnvsl_1_1StatsBase')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classnvsl_1_1StatsBase.html">nvsl::StatsBase</a></td></tr>
+<tr class="memitem:ab872283115cfdc6231ce6a4f2d5c1579 inherit pub_methods_classnvsl_1_1StatsBase"><td class="memItemLeft" align="right" valign="top"><a id="ab872283115cfdc6231ce6a4f2d5c1579"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>StatsBase</b> (bool reg)</td></tr>
+<tr class="separator:ab872283115cfdc6231ce6a4f2d5c1579 inherit pub_methods_classnvsl_1_1StatsBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa45d5c4a43fcd6d7acab51c50824db50 inherit pub_methods_classnvsl_1_1StatsBase"><td class="memItemLeft" align="right" valign="top"><a id="aa45d5c4a43fcd6d7acab51c50824db50"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (const std::string &amp;name, const std::string &amp;desc)</td></tr>
+<tr class="separator:aa45d5c4a43fcd6d7acab51c50824db50 inherit pub_methods_classnvsl_1_1StatsBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab872283115cfdc6231ce6a4f2d5c1579 inherit pub_methods_classnvsl_1_1StatsBase"><td class="memItemLeft" align="right" valign="top"><a id="ab872283115cfdc6231ce6a4f2d5c1579"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>StatsBase</b> (bool reg)</td></tr>
 <tr class="separator:ab872283115cfdc6231ce6a4f2d5c1579 inherit pub_methods_classnvsl_1_1StatsBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,6 +175,9 @@ Friends</h2></td></tr>
 <tr class="memitem:ae7a5a50534b702488d90967791c6a921"><td class="memItemLeft" align="right" valign="top"><a id="ae7a5a50534b702488d90967791c6a921"></a>
 <a class="el" href="classnvsl_1_1StatsScalar.html">StatsScalar</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (<a class="el" href="classnvsl_1_1StatsScalar.html">StatsScalar</a> lhs, const auto rhs)</td></tr>
 <tr class="separator:ae7a5a50534b702488d90967791c6a921"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7a5a50534b702488d90967791c6a921"><td class="memItemLeft" align="right" valign="top"><a id="ae7a5a50534b702488d90967791c6a921"></a>
+<a class="el" href="classnvsl_1_1StatsScalar.html">StatsScalar</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (<a class="el" href="classnvsl_1_1StatsScalar.html">StatsScalar</a> lhs, const auto rhs)</td></tr>
+<tr class="separator:ae7a5a50534b702488d90967791c6a921"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -163,9 +192,9 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>stat_desc</b><
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a single stat with a name and a description. </p>
 
-<p class="definition">Definition at line <a class="el" href="stats_8hh_source.html#l00067">67</a> of file <a class="el" href="stats_8hh_source.html">stats.hh</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nvsl_2stats_8hh_source.html#l00229">229</a> of file <a class="el" href="nvsl_2stats_8hh_source.html">stats.hh</a>.</p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/nvsl/<a class="el" href="stats_8hh_source.html">stats.hh</a></li>
+<li>include/nvsl/<a class="el" href="nvsl_2stats_8hh_source.html">stats.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

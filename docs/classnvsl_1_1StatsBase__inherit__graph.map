@@ -1,5 +1,7 @@
 <map id="nvsl::StatsBase" name="nvsl::StatsBase">
-<area shape="rect" id="node1" title="Base class for Stats." alt="" coords="114,5,229,32"/>
-<area shape="rect" id="node2" href="$classnvsl_1_1StatsNamedVector.html" title="Represents a vector of stats, each with a name." alt="" coords="5,80,169,107"/>
-<area shape="rect" id="node3" href="$classnvsl_1_1StatsScalar.html" title="Represents a single stat with a name and a description." alt="" coords="194,80,317,107"/>
+<area shape="rect" id="node1" title="Base class for Stats." alt="" coords="231,5,346,32"/>
+<area shape="rect" id="node2" href="$classnvsl_1_1Counter.html" title="Counts operations." alt="" coords="5,80,105,107"/>
+<area shape="rect" id="node3" href="$classnvsl_1_1StatsFreq.html" title="Stat to measure freq of elements with a name and a description." alt="" coords="129,80,272,107"/>
+<area shape="rect" id="node4" href="$classnvsl_1_1StatsNamedVector.html" title="Represents a vector of stats, each with a name." alt="" coords="296,80,460,107"/>
+<area shape="rect" id="node5" href="$classnvsl_1_1StatsScalar.html" title="Represents a single stat with a name and a description." alt="" coords="485,80,607,107"/>
 </map>

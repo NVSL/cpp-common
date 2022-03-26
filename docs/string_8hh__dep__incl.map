@@ -1,7 +1,8 @@
 <map id="include/nvsl/string.hh" name="include/nvsl/string.hh">
-<area shape="rect" id="node1" title="Usefult string functions. Mostly resemble python&#39;s." alt="" coords="219,5,364,32"/>
+<area shape="rect" id="node1" title="Usefult string functions. Mostly resemble python&#39;s." alt="" coords="295,5,440,32"/>
 <area shape="rect" id="node2" href="$common_8impl_8hh.html" title="Brief description here." alt="" coords="5,80,196,107"/>
-<area shape="rect" id="node3" href="$stats_8hh.html" title="Class to collect stats, generate summary and latex code." alt="" coords="220,80,363,107"/>
-<area shape="rect" id="node5" href="$test__string_8cc.html" title="Test string functions." alt="" coords="387,80,521,107"/>
+<area shape="rect" id="node3" href="$nvsl_2stats_8hh.html" title="Class to collect stats, generate summary and latex code." alt="" coords="220,80,363,107"/>
+<area shape="rect" id="node5" href="$stats_8hh.html" title="Class to collect stats, generate summary and latex code." alt="" coords="387,80,502,107"/>
+<area shape="rect" id="node6" href="$test__string_8cc.html" title="Test string functions." alt="" coords="527,80,661,107"/>
 <area shape="rect" id="node4" href="$test__stats_8cc.html" title="Test stats functions." alt="" coords="226,155,357,181"/>
 </map>

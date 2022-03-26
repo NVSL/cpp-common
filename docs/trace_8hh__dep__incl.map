@@ -1,0 +1,10 @@
+<map id="include/nvsl/trace.hh" name="include/nvsl/trace.hh">
+<area shape="rect" id="node1" title="Brief description here." alt="" coords="100,5,243,32"/>
+<area shape="rect" id="node2" href="$error_8hh.html" title="Brief description here." alt="" coords="102,80,241,107"/>
+<area shape="rect" id="node3" href="$nvsl_2stats_8hh.html" title="Class to collect stats, generate summary and latex code." alt="" coords="5,229,148,256"/>
+<area shape="rect" id="node5" href="$string_8hh.html" title="Usefult string functions. Mostly resemble python&#39;s." alt="" coords="195,155,340,181"/>
+<area shape="rect" id="node4" href="$test__stats_8cc.html" title="Test stats functions." alt="" coords="11,304,142,331"/>
+<area shape="rect" id="node6" href="$common_8impl_8hh.html" title="Brief description here." alt="" coords="172,229,363,256"/>
+<area shape="rect" id="node7" href="$stats_8hh.html" title="Class to collect stats, generate summary and latex code." alt="" coords="387,229,502,256"/>
+<area shape="rect" id="node8" href="$test__string_8cc.html" title="Test string functions." alt="" coords="527,229,661,256"/>
+</map>

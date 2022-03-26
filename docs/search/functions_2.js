@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['is_5fprefix_58',['is_prefix',['../string_8hh.html#a900d1979c644a13641db4abefd6f8408',1,'nvsl']]],
-  ['is_5fsuffix_59',['is_suffix',['../string_8hh.html#a91a528df39384081bbcbccb413a4c63b',1,'nvsl']]]
+  ['bucket_5fcount_78',['bucket_count',['../classnvsl_1_1StatsFreq.html#a7be66952c0ba453ce2fb03a42a60ed26',1,'nvsl::StatsFreq']]]
 ];
