@@ -14,6 +14,7 @@
 #include <concepts>
 #include <cstddef>
 #include <map>
+#include <numeric>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -158,8 +159,8 @@ namespace nvsl {
      * @return Number of samples in overflow and underflow buckets (whichever is enabled)
      */
     size_t uoflow_count(bool underflow_cnt, bool overflow_cnt) const {
-      return underflow_cnt ? this->underflow_cnt : 0 +
-             overflow_cnt ? this->overflow_cnt : 0;
+      return (underflow_cnt ? this->underflow_cnt : 0) +
+        (overflow_cnt ? this->overflow_cnt : 0);
     }
 
     /**
