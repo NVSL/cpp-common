@@ -9,10 +9,12 @@
  */
 
 #include "nvsl/string.hh"
+#include "nvsl/error.hh"
 
 #include <concepts>
 #include <cstddef>
 #include <map>
+#include <numeric>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -52,6 +54,7 @@ namespace nvsl {
 
     void init(const std::string &name, const std::string &desc) {
       this->stat_name = name;
+      printf("Stat name = %s\n", this->stat_name.c_str());
       this->stat_desc = desc;
     }
 
@@ -60,6 +63,165 @@ namespace nvsl {
     virtual std::string latex(const std::string &prefix = "") const {
       (void)prefix;
       return "";
+    }
+  };
+
+   /**
+   * @brief Stat to measure freq of elements with a name and a description
+   * @details
+   */
+  template <typename T = size_t>
+  class StatsFreq : public StatsBase {
+  private:
+    size_t bucket_cnt;
+    T bucket_min, bucket_max, bucket_sz;
+    size_t *counts, underflow_cnt, overflow_cnt;
+
+  public:
+    StatsFreq(bool reg = true) : StatsBase(reg) {};
+
+    ~StatsFreq() {
+      delete[] counts;
+    }
+
+    /**
+     * @brief Initialize the stats' buckets
+     * @param name Name of the stat
+     * @param desc Description of the stat
+     * @param bucket_cnt Number of buckets
+     * @param bucket_min Minimum value of the bucket
+     * @param bucket_max Maximum value of the bucket
+     * @param bucket_sz Size of the bucket
+     */
+    void init(const std::string &name, const std::string &desc,
+              size_t bucket_cnt, T bucket_min, T bucket_max) {
+#if defined(DBGE) 
+      NVSL_ASSERT(bucket_cnt != 0, "Bucket size cannot be zero");
+      NVSL_ASSERT(bucket_max > bucket_min,
+                "Bucket max cannot be smaller than bucket min");
+#else
+      assert(bucket_cnt != 0 && "Bucket size cannot be zero");
+      assert(bucket_max > bucket_min &&
+                "Bucket max cannot be smaller than bucket min");
+#endif  // DBGE
+
+      StatsBase::init(name, desc);
+      
+      this->bucket_cnt = bucket_cnt;
+      this->bucket_min = bucket_min;
+      this->bucket_max = bucket_max;
+      this->bucket_sz = (bucket_max-bucket_min)/bucket_cnt;
+      this->underflow_cnt = 0;
+      this->overflow_cnt = 0;
+
+      this->counts = new size_t[bucket_cnt];
+      memset(counts, 0, sizeof(counts[0])*bucket_cnt);
+    }
+
+    /**
+     * @brief Add a value to the frequency map
+     * @param[in] val Value to sample
+     * @param[in] count=1 Number of times to add this value to the map
+     */
+    void add(T val, size_t count = 1) {
+      if (val < bucket_min) {
+        underflow_cnt++;
+      } else if (val >= bucket_max) {
+        overflow_cnt++;
+      } else {
+        size_t bucket_idx = (val-bucket_min)/bucket_sz;
+        counts[bucket_idx]++;
+      }      
+    }
+
+    /**
+     * @brief Get the total number of samples
+     * @return Total number of samples
+     */
+    size_t total() const {
+      return underflow_cnt + overflow_cnt +
+             std::accumulate(counts, counts+bucket_cnt, 0);
+    }
+
+    /**
+     * @brief Get the number of samples in a bucket
+     * @param[in] bucket Bucket index
+     * @return Number of samples in the bucket
+     */
+    size_t bucket_count(size_t bucket) const {
+      return counts[bucket];
+    }
+
+    /**
+     * @brief Get the number of samples in overflow and underflow buckets
+     * @param[in] underflow_cnt Return the number of samples in underflow bucket
+     * @param[in] overflow_cnt Return the number of samples in overflow bucket
+     * @return Number of samples in overflow and underflow buckets (whichever is enabled)
+     */
+    size_t uoflow_count(bool underflow_cnt, bool overflow_cnt) const {
+      return (underflow_cnt ? this->underflow_cnt : 0) +
+        (overflow_cnt ? this->overflow_cnt : 0);
+    }
+
+    /**
+     * @brief Generate a string representation of the frequency map
+     */
+    std::string str() const {
+      std::stringstream ss;
+      ss << stat_name + ".bucket_count: " << bucket_cnt       << "\t# " + stat_desc << "\n"
+         << stat_name + ".bucket_min: " << bucket_min         << "\t# " + stat_desc << "\n"
+         << stat_name + ".bucket_max: " << bucket_max           << "\t# " + stat_desc << "\n"
+         << stat_name + ".bucket_size: " << bucket_sz         << "\t# " + stat_desc << "\n"
+         << stat_name + ".underflow_count: " << underflow_cnt << "\t# " + stat_desc << "\n"
+         << stat_name + ".overflow_count: " << overflow_cnt   << "\t# " + stat_desc << "\n";
+
+      for (size_t i = 0; i < bucket_cnt; i++) {
+        ss << stat_name + ".bucket[" << i << "]: " << counts[i] << std::endl;
+      }
+
+      return ss.str();      
+    }
+  };
+
+  /** @brief Counts operations */
+  class Counter : public StatsBase {
+  private:
+    size_t counter;
+  public:
+    Counter(bool reg = true) : StatsBase(reg), counter(0) {
+      printf("Counter constructed\n");
+    };
+
+    void init(const std::string &name, const std::string &desc) {
+      StatsBase::init(name, desc);
+    }
+    
+    Counter& operator++() {
+      this->counter++;
+      return *this;
+    }
+
+    Counter operator++(int) {
+      Counter result = *this;
+      ++this->counter;
+
+      return result;
+    }
+
+    size_t value() const {
+      return this->counter;
+    }
+
+    /** @brief Get the string representation of the stat */
+    std::string str() const override {
+      std::stringstream ss;
+      ss << StatsBase::stat_name << " = " << value();
+
+      if (stat_desc != "") {
+        ss << " # " << stat_desc;
+      }
+
+      return ss.str();
     }
   };
 
