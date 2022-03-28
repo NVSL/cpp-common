@@ -149,7 +149,7 @@ struct DBGH {
 #else
       DBG << "[\x1B[1m" << std::setw(20) << std::string(caller) << "()"
           << "\x1B[0m"
-          << "] ";
+          << "]:" << (int)lvl << " ";
 #endif // NVSL_SIMPLIFIED_TERM_IO
     }
 #endif // !RELEASE
