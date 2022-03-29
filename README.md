@@ -1,5 +1,20 @@
 [![CircleCI](https://circleci.com/gh/NVSL/cpp-common/tree/master.svg?style=svg&circle-token=303fcb99481c32f94d3eac4fd719a1ae524efc10)](https://circleci.com/gh/NVSL/cpp-common/tree/master)
 
+-   [Common macros and functions for
+    C++](#common-macros-and-functions-for-c)
+    -   [Usage](#usage)
+        -   [PMemOps: CLWB, CLFLUSHOPT, CLFLUSH and
+            MSYNC](#pmemops-clwb-clflushopt-clflush-and-msync)
+    -   [String operations](#string-operations)
+        -   [split()](#split)
+        -   [zip(): join vector of string using a
+            token](#zip-join-vector-of-string-using-a-token)
+        -   [S(): String constructor](#s-string-constructor)
+    -   [Clock](#clock)
+        -   [Simple timing benchmark](#simple-timing-benchmark)
+    -   [Available files](#available-files)
+    -   [Supported operations](#supported-operations)
+
 # Common macros and functions for C++
 
 Header only collection of common macro functionality for C++ 20.
