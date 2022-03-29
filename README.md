@@ -15,15 +15,64 @@ Add the directory as a include directory:
 g++ -iquote"vendor/cpp-common/include" main.cc -o main
 ```
 
-Use the files in your project:
+
+### PMemOps: CLWB, CLFLUSHOPT, CLFLUSH and MSYNC
+
+PMemOps provides convinient functions to flush and drain arbitrary sized address
+range.
+
+#### Flush and drain using pmemops
+
 ```cpp
-#include "nvsl/string.hh"
-#include <iostream>
+#include "nvsl/pmemops.hh"
 
 int main() {
-    for (const auto tok : split("Hello! World.", " ")) {
-        std::cout << tok << std::endl;
-    }
+    nvsl::PmemOps *pmemops = new nvsl::PmemOpsClwb();
+    
+    /* uint64_t *val = pmalloc(sizeof(uint64_t)); */
+    
+    // CLWB
+    pmemops->flush(val, sizeof(*val));
+    
+    // SFENCE
+    pmemops->drain();
+}
+
+```
+
+#### Streaming writes using pmemops
+PMemOps supports streaming writes (NT stores) to perform memcpy.  
+`streaming_wr()` automatically selects the right instruction depending on the
+number of bytes being copied.
+
+
+```cpp
+#include "nvsl/pmemops.hh"
+
+int main() {
+    nvsl::PmemOps *pmemops = new nvsl::PmemOpsClwb();
+    
+    /* 
+     * uint64_t *src = pmalloc(100 * sizeof(uint64_t)); 
+     * uint64_t *dst = pmalloc(100 * sizeof(uint64_t)); 
+     */
+    
+    // NT stores to do memcpy
+    pmemops->streaming_wr(dst, src, 100*sizeof(uint64_t));
+}
+```
+
+## String operations
+Use the files in your project:
+
+```
+#include "nvsl/string.hh"
+```
+
+### split() 
+```cpp
+for (const auto tok : split("Hello! World.", " ")) {
+    std::cout << tok << std::endl;
 }
 ```
 
@@ -33,11 +82,51 @@ Hello!
 World
 ```
 
+### zip(): join vector of string using a token
+```cpp
+std::cout << zip({"1", "2", "3"}, ", ")) << std::endl;
+```
+
+Prints:
+```
+1, 2, 3
+```
+
+### S(): String constructor
+Convert `char*`, numbers or floats to `std::string`:
+
+```cpp
+using namespace nvsl;
+char *buf = "some string";
+
+std::string buf_str = S(buf);
+std::string num = S(1);
+```
+
+## Clock
+### Simple timing benchmark
+
+```cpp
+void do_something() {
+    nvsl::Clock clk;
+
+    clk.tick();
+    sleep(1);
+    clk.tock();
+    
+    clk.reconcile();
+    
+    std::cout << "Execution summary" << clk.summarize() << std::endl;
+}
+```
+
 ## Available files
-- [string.hh](include/nvsl/string.hh)
+- [clock.hh](include/nvsl/clock.hh)
 - [envvars.hh](include/nvsl/envvars.hh)
 - [error.hh](include/nvsl/error.hh)
+- [pmemops.hh](include/nvsl/pmemops.hh)
 - [stats.hh](include/nvsl/stats.hh)
+- [string.hh](include/nvsl/string.hh)
 
 ## Supported operations
-Docs available at [https://nvsl.github.io/cpp-common/docs/html/](nvsl.io/cpp-common/docs/html).
+Docs available at [https://nvsl.github.io/cpp-common/](nvsl.io/cpp-common/).

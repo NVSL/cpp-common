@@ -17,8 +17,8 @@ GTEST_DIR=../vendor/googletest/googletest
 # Where to find user code.
 USER_DIR=.
 
-LIBPUDDLES_CXXFLAGS:=-I../src/include -I../src/ -std=c++20 -I../vendor/interval-tree
-LIBPUDDLES_LDFLAGS:=-L../lib/ -Wl,-R../lib/
+LIBPUDDLES_CXXFLAGS:=-iquote../src/include -iquote../src/ -std=c++20 -iquote../vendor/interval-tree -mavx
+LIBPUDDLES_LDFLAGS:=-L../lib/ -Wl,-R../lib/ -mavx
 
 # Flags passed to the preprocessor.
 # Set Google Test's header directory as a system directory, such that
@@ -27,7 +27,7 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include
 
 # Flags passed to the C++ compiler.
 CXXFLAGS += -g -Wall -Wextra -pthread $(LIBPUDDLES_CXXFLAGS) \
-	-I../include -I../src/libpuddles
+	-I../include -iquote../src/libpuddles -mavx
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
@@ -74,10 +74,10 @@ gtest_main.a : gtest-all.o gtest_main.o
 	$(PUDDLES_AR) $(ARFLAGS) $@ $^
 
 %.o: %.cc $(DEPENDS)
-	$(PUDDLES_CXX) -c $(CXXFLAGS) $< -o $@
+	$(PUDDLES_CXX) -c $(CXXFLAGS) -msse4.1 $< -o $@
 
 test_%.o : $(USER_DIR)/test_%.cc $(GTEST_HEADERS)
-	$(PUDDLES_CXX) $(CPPFLAGS) $(CXXFLAGS) -c $<
+	$(PUDDLES_CXX) $(CPPFLAGS) $(CXXFLAGS) -msse4.1 -mclwb -mssse3 -mavx512f -c $<
 
 test.bin : $(OBJECTS) gtest_main.a
 	$(PUDDLES_CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@ \

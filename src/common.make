@@ -2,6 +2,7 @@ SELF_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 DEPS_DIR := .deps
 
 include $(SELF_DIR)colors.make
+include $(SELF_DIR)features.make
 
 ifdef RELEASE
 CXXFLAGS    :=-std=gnu++20 -ggdb3 -O3 -march=native -fPIC -Wall -DNDEBUG
@@ -47,3 +48,4 @@ QUIET_INSTALL = @printf '%b %b\n'   $(INSTALLCOLOR)INSTALL$(ENDCOLOR) $(SRCCOLOR
 else
 QUIET_MAKE    = $(MAKE)
 endif
+
