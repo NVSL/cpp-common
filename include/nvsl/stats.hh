@@ -54,7 +54,6 @@ namespace nvsl {
 
     void init(const std::string &name, const std::string &desc) {
       this->stat_name = name;
-      printf("Stat name = %s\n", this->stat_name.c_str());
       this->stat_desc = desc;
     }
 
@@ -188,9 +187,7 @@ namespace nvsl {
   private:
     size_t counter;
   public:
-    Counter(bool reg = true) : StatsBase(reg), counter(0) {
-      printf("Counter constructed\n");
-    };
+    Counter(bool reg = true) : StatsBase(reg), counter(0) {};
 
     void init(const std::string &name, const std::string &desc) {
       StatsBase::init(name, desc);

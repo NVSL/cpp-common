@@ -67,8 +67,15 @@ namespace nvsl {
     return mismatch == prefix.end();
   }
 
+  template <typename T>
+  inline const std::string S(T val) { return std::to_string(val); }
+
+  template <>
   inline const std::string S(const char *c) { return std::string(c); }
 
+  template <>
+  inline const std::string S(char *c) { return std::string(c); }
+  
   inline std::string ltrim(const std::string &str) {
     const auto start = str.find_first_not_of(" \t\n");
 
