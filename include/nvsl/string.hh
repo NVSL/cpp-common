@@ -9,6 +9,7 @@
  */
 
 #include "nvsl/error.hh"
+#include <regex>
 #include <string>
 #include <vector>
 
@@ -93,6 +94,11 @@ namespace nvsl {
     if (end == std::string::npos) return str;
 
     return str.substr(0, end + 1);
+  }
+
+  inline std::string replace(const std::string &str, const std::string &substr,
+                             const std::string &replacement) {
+    return std::regex_replace(str, std::regex(substr), replacement);
   }
 
   inline std::string trim(const std::string &str) { return ltrim(rtrim(str)); }
