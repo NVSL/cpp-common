@@ -72,7 +72,11 @@ namespace nvsl {
   inline const std::string S(T val) { return std::to_string(val); }
 
   template <>
-  inline const std::string S(void* val) { return std::to_string((size_t)val); }
+  inline const std::string S(void* val) { 
+    std::stringstream ss;
+    ss << val;
+    return ss.str();
+  }
 
   template <>
   inline const std::string S(const char *c) { return std::string(c); }

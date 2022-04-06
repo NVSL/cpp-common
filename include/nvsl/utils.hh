@@ -23,6 +23,9 @@ namespace nvsl {
     if (flags & MAP_SHARED) {
       flags_v.push_back("MAP_SHARED");
     }
+    if (flags & MAP_SHARED_VALIDATE) {
+      flags_v.push_back("MAP_SHARED_VALIDATE");
+    }
     if (flags & MAP_PRIVATE) {
       flags_v.push_back("MAP_PRIVATE");
     }
@@ -58,5 +61,26 @@ namespace nvsl {
     const auto params = zip(params_v, ", ");
 
     return "mmap(" + params + ")";
+  }
+
+  inline std::string fd_to_fname(const int fd) {
+    // TODO: Handlde error correctly
+    
+    /* Read the file name for the fd */
+    auto fd_path = "/proc/self/fd/" + std::to_string(fd);
+    constexpr size_t path_max = 4096;
+    char buf[path_max];
+    const ssize_t rl_ret = readlink(fd_path.c_str(), buf, path_max);
+    
+    if (rl_ret == -1) {
+      perror("readlink for mmap failed");
+      exit(1);
+    }
+
+    buf[rl_ret] = 0;
+
+    DBGH(3) << "Mmaped fd " << fd << " to path " << S(buf) << std::endl;
+
+    return S(buf);
   }
 }

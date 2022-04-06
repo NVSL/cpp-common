@@ -69,22 +69,15 @@ static inline std::string print_stuff__(std::string msg, std::string dec) {
   } while (0);
 
 /** @brief Assert a condition w/ msg and generate backtrace on fail */
-#ifndef NDEBUG
 #define NVSL_ASSERT(cond, msg)                                     \
   if (!(cond)) [[unlikely]] {                                      \
     DBGE << __FILE__ << ":" << __LINE__ << " Assertion `" << #cond \
          << "' failed: " << msg << std::endl;                      \
+    exit(1);                                                       \
     if (not get_env_val(NVSL_NO_STACKTRACE_ENV)) {                 \
       nvsl::print_trace();                                         \
     }                                                              \
-    exit(1);                                                       \
   }
-#else
-#define NVSL_ASSERT(cond, msg) \
-  if (true) {                \
-    (void)(cond);            \
-  }
-#endif
 
 /** @brief Convert errno to std::string */
 static inline std::string PSTR() {
