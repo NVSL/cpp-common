@@ -8,6 +8,7 @@
  * @brief  Clock primitives for benchmarking workloads
  */
 
+#include <cstdint>
 #ifndef NVSL_ASSERT
 #include <cassert>
 #endif
@@ -42,6 +43,7 @@ namespace nvsl {
     size_t total_ns = 0;
     std::vector<size_t> raw_values;
     std::vector<size_t> sorted_raw_values;
+    size_t events = 0;
 
     /**< Total number of values to store */
     static constexpr size_t RAW_VAL_CNT = 1024*1024*100;
@@ -85,6 +87,7 @@ namespace nvsl {
       }
 #endif
       this->raw_values.push_back(elapsed);
+      this->events++;
     }
 
     void reset() {
@@ -101,7 +104,7 @@ namespace nvsl {
       size_t ns_total = this->ns();
 
       ss << "Total ns:   " << this->ns() << std::endl;
-      ss << "Total time: " << ns_to_hr_clk(ns_total);
+      ss << "Total time: " << ns_to_hr_clk(ns_total) << std::endl;
 
       return ss.str();
     }
@@ -152,19 +155,21 @@ namespace nvsl {
 #endif
       
       size_t ops_per_iter = total_ops/raw_values.size();
-      ss << this->summarize() << std::endl
+      ss << this->summarize()
          << "ops/s: " << (total_ops * (1000000000)) / ((double)this->ns())
-         << "\n"
-         << "time/op: "
-         << ns_to_hr_clk((size_t)(this->ns() / (double)total_ops))
-         << "\np50/op: "
-         << ns_to_hr_clk((size_t)(this->percentile(50))/ops_per_iter)
-         << "\np90/op: "
-         << ns_to_hr_clk((size_t)(this->percentile(90))/ops_per_iter)
-         << "\np99/op: "
-         << ns_to_hr_clk((size_t)(this->percentile(99))/ops_per_iter)
          << "\ntime/op: "
-         << ns_to_hr_clk((size_t)(this->ns() / (double)total_ops));
+         << ns_to_hr_clk((size_t)(this->ns() / (double)total_ops))
+         << "\nns/op: " << (this->ns() / (double)total_ops);
+      if (distribution) {
+        ss << "\np50/op: "
+           << ns_to_hr_clk((size_t)(this->percentile(50))/ops_per_iter)
+           << "\np90/op: "
+           << ns_to_hr_clk((size_t)(this->percentile(90))/ops_per_iter)
+           << "\np99/op: "
+           << ns_to_hr_clk((size_t)(this->percentile(99))/ops_per_iter)
+           << "\ntime/op: "
+           << ns_to_hr_clk((size_t)(this->ns() / (double)total_ops));
+      }
 
       return ss.str();
     }
