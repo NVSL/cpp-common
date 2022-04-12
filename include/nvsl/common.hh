@@ -300,19 +300,19 @@ namespace nvsl {
 
   /** @brief Wrapper for reinterpret_cast */
   template <typename O, typename I>
-  static inline O LP_RCast(I arg) {
+  static inline O RCast(I arg) {
     return reinterpret_cast<O>(arg);
   }
 
   /** @brief Wrapper for static_cast */
   template <typename O, typename I>
-  static inline O LP_SCast(I arg) {
+  static inline O SCast(I arg) {
     return static_cast<O>(arg);
   }
 
   /** @brief Wrapper for dynamic_cast */
   template <typename O, typename I>
-  static inline O LP_DCast(I arg) {
+  static inline O DCast(I arg) {
     return dynamic_cast<O>(arg);
   }
 
@@ -320,8 +320,8 @@ namespace nvsl {
   auto page_num(auto ptr) -> decltype(ptr) {
     using retType = decltype(ptr);
 
-    auto ptr_ul = LP_RCast<uint64_t>(ptr);
-    return LP_RCast<retType>(ptr_ul >> 12);
+    auto ptr_ul = RCast<uint64_t>(ptr);
+    return RCast<retType>(ptr_ul >> 12);
   }
 
   /**
