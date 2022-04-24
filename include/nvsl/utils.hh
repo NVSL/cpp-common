@@ -95,7 +95,7 @@ namespace nvsl {
    *
    * @return Number of 8byte words with errors
    */
-  size_t memcheck(void *vram_ptr, size_t bytes) {
+  inline size_t memcheck(void *vram_ptr, size_t bytes) {
     const auto u64_ptr = reinterpret_cast<uint64_t *>(vram_ptr);
 
     std::cerr << "Memsetting...";
