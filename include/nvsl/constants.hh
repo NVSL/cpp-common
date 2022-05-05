@@ -22,12 +22,13 @@ namespace nvsl {
     TiB = 1024 * GiB
   };
 
-  enum time_unit
-  {
+  enum time_unit {
     s_unit = 0,
     ms_unit,
     us_unit,
     ns_unit,
     any_unit
   };
+
+  constexpr size_t CL_SIZE = 64 * LP_SZ::B;
 } // namespace nvsl

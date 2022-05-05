@@ -65,25 +65,35 @@ namespace nvsl {
 
   inline std::string fd_to_fname(const int fd) {
     std::string result = "";
-    
-    /* Read the file name for the fd */
-    auto fd_path = "/proc/self/fd/" + std::to_string(fd);
-    constexpr size_t path_max = 4096;
-    char buf[path_max];
-    const ssize_t rl_ret = readlink(fd_path.c_str(), buf, path_max);
-    
-    if (rl_ret == -1) {
-      DBGW << "Readline for fd " << fd << " failed. Readlink path: "
-           << fd_path << std::endl;
-      DBGW << PSTR() << std::endl;
-    } else {
-      buf[rl_ret] = 0;
 
-      DBGH(3) << "Mmaped fd " << fd << " to path " << S(buf) << std::endl;
+    if (fd != -1) {
+      /* Read the file name for the fd */
+      auto fd_path = "/proc/self/fd/" + std::to_string(fd);
+      constexpr size_t path_max = 4096;
+      char buf[path_max];
+      const ssize_t rl_ret = readlink(fd_path.c_str(), buf, path_max);
 
-      result = S(buf);
+      if (rl_ret == -1) {
+        DBGH(1) << "Readline for fd " << fd
+                << " failed. Readlink path: " << fd_path << std::endl;
+        DBGH(1) << PSTR() << std::endl;
+      } else {
+        buf[rl_ret] = 0;
+
+        DBGH(3) << "Mmaped fd " << fd << " to path " << S(buf) << std::endl;
+
+        result = S(buf);
+      }
     }
 
     return result;
   }
-}
+
+  constexpr inline size_t round_down(size_t val, size_t factor) {
+    return (val / factor) * factor;
+  }
+
+  constexpr inline size_t round_up(size_t val, size_t factor) {
+    return ((val + factor - 1) / factor) * factor;
+  }
+} // namespace nvsl
