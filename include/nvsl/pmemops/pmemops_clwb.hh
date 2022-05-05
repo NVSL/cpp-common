@@ -33,29 +33,42 @@ inline void streaming_wr_16B(void *dest, const void *src) {
 
 /** @brief Streaming copy 32B */
 inline void streaming_wr_32B(void *dest, const void *src) {
+#ifdef __AVX__
   __m256i ymm0 = _mm256_loadu_si256((__m256i *)src);
 
   _mm256_stream_si256((__m256i *)dest, ymm0);
+#else
+  assert(0 && "AVX512F function called on unsupported processor");
+#endif
 }
 
 /** @brief Streaming copy 1 cachelines (64B) */
 inline void streaming_wr_64B(void *dest, const void *src) {
+#ifdef __AVX512F__
   __m512i zmm0 = _mm512_loadu_si512((const __m512i *)src);
 
   _mm512_stream_si512((__m512i *)dest, zmm0);
+#else
+  assert(0 && "AVX512F function called on unsupported processor");
+#endif
 }
 
 /** @brief Streaming copy 2 cachelines (128B) */
 inline void streaming_wr_128B(void *dest, const void *src) {
+#ifdef __AVX512F__
   __m512i zmm0 = _mm512_loadu_si512((const __m512i *)src);
   __m512i zmm1 = _mm512_loadu_si512((const __m512i *)src + 1);
 
   _mm512_stream_si512((__m512i *)dest, zmm0);
   _mm512_stream_si512((__m512i *)dest + 1, zmm1);
+#else
+  assert(0 && "AVX512F function called on unsupported processor");
+#endif
 }
 
 /** @brief Streaming copy 2 cachelines (128B) */
 inline void streaming_wr_256B(void *dest, const void *src) {
+#ifdef __AVX512F__
   __m512i zmm0 = _mm512_loadu_si512((const __m512i *)src);
   __m512i zmm1 = _mm512_loadu_si512((const __m512i *)src + 1);
   __m512i zmm2 = _mm512_loadu_si512((const __m512i *)src + 2);
@@ -65,10 +78,13 @@ inline void streaming_wr_256B(void *dest, const void *src) {
   _mm512_stream_si512((__m512i *)dest + 1, zmm1);
   _mm512_stream_si512((__m512i *)dest + 2, zmm2);
   _mm512_stream_si512((__m512i *)dest + 3, zmm3);
+#else
+  assert(0 && "AVX512F function called on unsupported processor");
+#endif
 }
 
 inline void nvsl::PMemOpsClwb::streaming_wr(void *dest, const void *src,
-                               size_t bytes) const {
+                                            size_t bytes) const {
   size_t remaining_bytes = bytes;
   size_t cur_off_bytes = 0;
 
@@ -76,6 +92,7 @@ inline void nvsl::PMemOpsClwb::streaming_wr(void *dest, const void *src,
   auto dest_bp = (uint8_t *)dest;
 
   while (remaining_bytes > 0) {
+#ifdef __AVX512F__
     if (remaining_bytes >= 256) {
       streaming_wr_256B(dest_bp + cur_off_bytes, src_bp + cur_off_bytes);
       cur_off_bytes += 256;
@@ -88,11 +105,16 @@ inline void nvsl::PMemOpsClwb::streaming_wr(void *dest, const void *src,
       streaming_wr_64B(dest_bp + cur_off_bytes, src_bp + cur_off_bytes);
       cur_off_bytes += 64;
       remaining_bytes -= 64;
-    } else if (remaining_bytes >= 32) {
+    } else
+#endif
+#if __AVX__
+        if (remaining_bytes >= 32) {
       streaming_wr_32B(dest_bp + cur_off_bytes, src_bp + cur_off_bytes);
       cur_off_bytes += 32;
       remaining_bytes -= 32;
-    } else if (remaining_bytes >= 16) {
+    } else
+#endif
+        if (remaining_bytes >= 16) {
       streaming_wr_16B(dest_bp + cur_off_bytes, src_bp + cur_off_bytes);
       cur_off_bytes += 16;
       remaining_bytes -= 16;

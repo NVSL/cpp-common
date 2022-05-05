@@ -65,6 +65,22 @@ namespace nvsl {
 
   inline std::string fd_to_fname(const int fd) {
     std::string result = "";
+<<<<<<< HEAD
+=======
+
+    /* Read the file name for the fd */
+    auto fd_path = "/proc/self/fd/" + std::to_string(fd);
+    constexpr size_t path_max = 4096;
+    char buf[path_max];
+    const ssize_t rl_ret = readlink(fd_path.c_str(), buf, path_max);
+
+    if (rl_ret == -1) {
+      DBGW << "Readline for fd " << fd << " failed. Readlink path: " << fd_path
+           << std::endl;
+      DBGW << PSTR() << std::endl;
+    } else {
+      buf[rl_ret] = 0;
+>>>>>>> 3e26a0756fd42ffadcb71ae2c5d20dd05d9287ff
 
     if (fd != -1) {
       /* Read the file name for the fd */
@@ -95,5 +111,31 @@ namespace nvsl {
 
   constexpr inline size_t round_up(size_t val, size_t factor) {
     return ((val + factor - 1) / factor) * factor;
+
+  /**
+   * @brief Checks the memory for errors
+   * @param[in] vram_ptr Pointer to the begining of the region to check
+   * @param bytes Bytes to scan
+   * @warn This function will overwrite memory. Any existing data will be lost
+   *
+   * @return Number of 8byte words with errors
+   */
+  inline size_t memcheck(void *vram_ptr, size_t bytes) {
+    const auto u64_ptr = reinterpret_cast<uint64_t *>(vram_ptr);
+
+    std::cerr << "Memsetting...";
+    memset(vram_ptr, 0xFF, bytes);
+    std::cerr << "done\n";
+
+    size_t err_cnt = 0;
+    std::cerr << "Reading memory...";
+    for (size_t i = 0; i < bytes / sizeof(uint64_t); i++) {
+      if (u64_ptr[i] != -1UL) {
+        err_cnt++;
+      }
+    }
+    std::cerr << "done. Total errors = " << err_cnt << "\n";
+
+    return err_cnt;
   }
 } // namespace nvsl
