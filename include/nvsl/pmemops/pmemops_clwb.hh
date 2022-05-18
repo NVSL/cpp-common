@@ -10,22 +10,31 @@
 #include <chrono>
 #include <cstdint>
 #include <cstring>
+#include <emmintrin.h>
 #include <immintrin.h>
 #include <mmintrin.h>
 #include <ratio>
 #include <sys/mman.h>
 #include <xmmintrin.h>
 
-#include "nvsl/pmemops/declarations.hh"
 #include "nvsl/error.hh"
+#include "nvsl/pmemops/declarations.hh"
+
+/** @brief Streaming copy 4B */
+inline void streaming_wr_4B(void *dest, const void *src) {
+  DBGH(4) << "Streaming write 4B: " << dest << " -> " << src << "\n";
+  _mm_stream_si32((int *)dest, *(int *)src);
+}
 
 /** @brief Streaming copy 8B */
 inline void streaming_wr_8B(void *dest, const void *src) {
+  DBGH(4) << "Streaming write 8B: " << dest << " -> " << src << "\n";
   _mm_stream_si64((long long *)dest, *(long long *)src);
 }
 
 /** @brief Streaming copy 16B */
 inline void streaming_wr_16B(void *dest, const void *src) {
+  DBGH(4) << "Streaming write 16B: " << dest << " -> " << src << "\n";
   __m128i xmm0 = _mm_loadu_si128((__m128i *)src);
 
   _mm_stream_si128((__m128i *)dest, xmm0);
@@ -33,6 +42,7 @@ inline void streaming_wr_16B(void *dest, const void *src) {
 
 /** @brief Streaming copy 32B */
 inline void streaming_wr_32B(void *dest, const void *src) {
+  DBGH(4) << "Streaming write 32B: " << dest << " -> " << src << "\n";
 #ifdef __AVX__
   __m256i ymm0 = _mm256_loadu_si256((__m256i *)src);
 
@@ -44,6 +54,7 @@ inline void streaming_wr_32B(void *dest, const void *src) {
 
 /** @brief Streaming copy 1 cachelines (64B) */
 inline void streaming_wr_64B(void *dest, const void *src) {
+  DBGH(4) << "Streaming write 64B: " << dest << " -> " << src << "\n";
 #ifdef __AVX512F__
   __m512i zmm0 = _mm512_loadu_si512((const __m512i *)src);
 
@@ -55,6 +66,7 @@ inline void streaming_wr_64B(void *dest, const void *src) {
 
 /** @brief Streaming copy 2 cachelines (128B) */
 inline void streaming_wr_128B(void *dest, const void *src) {
+  DBGH(4) << "Streaming write 128B: " << dest << " -> " << src << "\n";
 #ifdef __AVX512F__
   __m512i zmm0 = _mm512_loadu_si512((const __m512i *)src);
   __m512i zmm1 = _mm512_loadu_si512((const __m512i *)src + 1);
@@ -68,6 +80,7 @@ inline void streaming_wr_128B(void *dest, const void *src) {
 
 /** @brief Streaming copy 2 cachelines (128B) */
 inline void streaming_wr_256B(void *dest, const void *src) {
+  DBGH(4) << "Streaming write 256B: " << dest << " -> " << src << "\n";
 #ifdef __AVX512F__
   __m512i zmm0 = _mm512_loadu_si512((const __m512i *)src);
   __m512i zmm1 = _mm512_loadu_si512((const __m512i *)src + 1);
@@ -122,8 +135,10 @@ inline void nvsl::PMemOpsClwb::streaming_wr(void *dest, const void *src,
       streaming_wr_8B(dest_bp + cur_off_bytes, src_bp + cur_off_bytes);
       cur_off_bytes += 8;
       remaining_bytes -= 8;
-    } else {
-      assert(0);
+    } else if (remaining_bytes >= 4) {
+      streaming_wr_4B(dest_bp + cur_off_bytes, src_bp + cur_off_bytes);
+      cur_off_bytes += 4;
+      remaining_bytes -= 4;
     }
   }
 }
