@@ -90,7 +90,6 @@ namespace nvsl {
      * @param bucket_cnt Number of buckets
      * @param bucket_min Minimum value of the bucket
      * @param bucket_max Maximum value of the bucket
-     * @param bucket_sz Size of the bucket
      */
     void init(const std::string &name, const std::string &desc,
               size_t bucket_cnt, T bucket_min, T bucket_max) {
