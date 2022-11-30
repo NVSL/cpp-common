@@ -298,6 +298,12 @@ namespace nvsl {
 
   /* NOTE: First template is filled automatically */
 
+  /** @brief Wrapper for reinterpret_cast to void* */
+  template <typename I>
+  static inline void *P(I arg) {
+    return reinterpret_cast<void *>(arg);
+  }
+
   /** @brief Wrapper for reinterpret_cast */
   template <typename O, typename I>
   static inline O RCast(I arg) {
