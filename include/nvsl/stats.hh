@@ -63,6 +63,7 @@ namespace nvsl {
       (void)prefix;
       return "";
     }
+    virtual void reset() {}
   };
 
    /**
@@ -204,9 +205,9 @@ namespace nvsl {
       return result;
     }
 
-    size_t value() const {
-      return this->counter;
-    }
+    size_t value() const { return this->counter; }
+
+    void reset() override { this->counter = 0; }
 
     /** @brief Get the string representation of the stat */
     std::string str() const override {
@@ -250,6 +251,11 @@ namespace nvsl {
       this->total += rhs;
       this->count++;
       return *this;
+    }
+
+    void reset() override {
+      this->count = 0;
+      this->total = 0;
     }
 
     /** @brief Get the average value per operation */
