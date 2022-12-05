@@ -93,6 +93,9 @@ namespace nvsl {
     void reset() {
       this->running = false;
       this->total_ns = 0;
+      this->events = 0;
+      this->raw_values.clear();
+      this->sorted_raw_values.clear();
     }
 
     size_t ns() const { return this->total_ns; }
@@ -175,10 +178,11 @@ namespace nvsl {
     }
 
     size_t ns_per_op(size_t total_ops) const { return this->ns() / total_ops; }
+    size_t ns_per_event() const { return this->ns() / events; }
 
     size_t percentile_per_op(const size_t total_ops, const size_t pc) const {
       const auto ops_per_iter = total_ops / raw_values.size();
-      return this->percentile(pc)/ops_per_iter;
+      return this->percentile(pc) / ops_per_iter;
     }
   };
 } // namespace nvsl
