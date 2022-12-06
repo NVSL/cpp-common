@@ -18,6 +18,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <cfloat>
 
 namespace nvsl {
   template <class T>
@@ -227,6 +228,7 @@ namespace nvsl {
   private:
     double total;
     size_t count;
+    double max_v = -DBL_MAX;
 
     bool is_time;
     time_unit unit;
@@ -242,12 +244,14 @@ namespace nvsl {
     }
 
     friend StatsScalar operator+(StatsScalar lhs, const auto rhs) {
+      lhs.max_v = std::max((double)rhs, lhs.max_v);
       lhs.total += rhs;
       lhs.count++;
       return lhs;
     }
 
     StatsScalar &operator+=(const auto rhs) {
+      this->max_v = std::max((double)rhs, this->max_v);
       this->total += rhs;
       this->count++;
       return *this;
@@ -256,10 +260,17 @@ namespace nvsl {
     void reset() override {
       this->count = 0;
       this->total = 0;
+      this->max_v = -DBL_MAX;
     }
 
     /** @brief Get the average value per operation */
-    double avg() const override { return total / (double)count; }
+    double avg() const override { 
+      if (count == 0) {
+        return 0;
+      } else {
+        return total / (double)count;         
+      }
+    }
 
     /** @brief Get the string representation of the stat */
     std::string str() const override {
@@ -318,6 +329,14 @@ namespace nvsl {
 
       return result;
     };
+
+    double max() {
+      if (this->max_v == -DBL_MAX) {
+        return 0;
+      } else {
+        return this->max_v;
+      }
+    }
   };
 
   /** @brief Represents a vector of stats, each with a name */
