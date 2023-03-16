@@ -135,6 +135,18 @@ void do_something() {
 }
 ```
 
+## Some of the utilities also have a C interface
+```c
+#include "nvsl/c-common.h"
+```
+
+### Available functions
+```c
+void nvsl_fatal(const char *fmt, ...);
+int nvsl_is_log_enabled(int check_lvl);
+int nvsl_log(const int lvl, const char *fmt, ...);
+```
+
 ## Available files
 - [clock.hh](include/nvsl/clock.hh)
 - [envvars.hh](include/nvsl/envvars.hh)

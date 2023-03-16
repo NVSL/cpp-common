@@ -9,7 +9,9 @@
 #pragma once
 
 #include "nvsl/constants.hh"
+#include "nvsl/defs.h"
 #include "nvsl/envvars.hh"
+
 #include <chrono>
 #include <fcntl.h>
 #include <fstream>
@@ -20,8 +22,8 @@
 #include <sstream>
 #include <stdexcept>
 #include <string>
-#include <sys/wait.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 #include <unistd.h>
 
 #include <fnmatch.h>
@@ -32,7 +34,7 @@
 #define NVSL_NOINLINE __attribute__((noinline))
 
 #define NVSL_BEGIN_IGNORE_WPEDANTIC \
-  _Pragma("GCC diagnostic push")  \
+  _Pragma("GCC diagnostic push")    \
       _Pragma("GCC diagnostic ignored \"-Wpedantic\"")
 
 #define NVSL_END_IGNORE_WPEDANTIC _Pragma("GCC diagnostic pop")
@@ -49,9 +51,6 @@
 /** @brief Wrapper for ptr to std::lock_guard */
 #define NVSL_GUARD_PTR(mtx) \
   std::lock_guard<std::mutex> NVSL_LINE_NAME(nvsl_macro_lock_guard)((*mtx))
-
-static const char *NVSL_LOG_LEVEL_ENV NVSL_UNUSED =
-    (char *)("NVSL_LOG_LEVEL");
 
 static std::ofstream nullstream;
 
