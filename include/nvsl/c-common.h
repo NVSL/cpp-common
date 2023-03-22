@@ -11,11 +11,12 @@
 
 static int lvl_num = 5;
 
-void nvsl_fatal(const char *fmt, ...);
-int nvsl_is_log_enabled(int check_lvl);
-int nvsl_log(const int lvl, const char *fmt, ...);
+static inline void nvsl_fatal(const char *fmt, ...);
+static inline int nvsl_is_log_enabled(int check_lvl);
+static inline int _nvsl_log(const char *func, const int lvl, const char *fmt,
+                            ...);
 
-void nvsl_fatal(const char *fmt, ...) {
+static inline void nvsl_fatal(const char *fmt, ...) {
   va_list args;
   va_start(args, fmt);
 
@@ -27,7 +28,7 @@ void nvsl_fatal(const char *fmt, ...) {
   exit(1);
 }
 
-int nvsl_is_log_enabled(int check_lvl) {
+static inline int nvsl_is_log_enabled(int check_lvl) {
   if (lvl_num > 4) {
     const char *lvl = getenv(NVSL_LOG_LEVEL_ENV);
 
@@ -45,13 +46,15 @@ int nvsl_is_log_enabled(int check_lvl) {
   return (check_lvl <= lvl_num);
 }
 
-int nvsl_log(const int lvl, const char *fmt, ...) {
+static inline int _nvsl_log(const char *func, const int lvl, const char *fmt,
+                            ...) {
   va_list args;
   va_start(args, fmt);
 
   int res = 0;
 
   if (nvsl_is_log_enabled(lvl)) {
+    fprintf(stderr, "[%20s()]:%d ", func, lvl);
     res = vfprintf(stderr, fmt, args);
   }
 
@@ -59,5 +62,7 @@ int nvsl_log(const int lvl, const char *fmt, ...) {
 
   return res;
 }
+
+#define nvsl_log(lvl, fmt, ...) _nvsl_log(__func__, lvl, fmt, ##__VA_ARGS__)
 
 #endif // __cplusplus
