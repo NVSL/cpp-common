@@ -54,7 +54,7 @@ static inline int _nvsl_log(const char *func, const int lvl, const char *fmt,
   int res = 0;
 
   if (nvsl_is_log_enabled(lvl)) {
-    fprintf(stderr, "[%20s()]:%d ", func, lvl);
+    fprintf(stderr, "%5d+[%20s()]:%d ", gettid(), func, lvl);
     res = vfprintf(stderr, fmt, args);
   }
 
@@ -63,6 +63,10 @@ static inline int _nvsl_log(const char *func, const int lvl, const char *fmt,
   return res;
 }
 
+#ifdef RELEASE
 #define nvsl_log(lvl, fmt, ...) _nvsl_log(__func__, lvl, fmt, ##__VA_ARGS__)
+#else
+#define nvsl_log(lvl, fmt, ...) (void)0
+#endif
 
 #endif // __cplusplus
