@@ -273,8 +273,22 @@ namespace nvsl {
     return result;
   }
 
+  /** @brief Rounds up the val to the multiple of mult greater than it */
+  inline constexpr auto round_up(auto val, auto mult) -> decltype(val) {
+    if (mult > val)
+      throw std::runtime_error("Mult " + std::to_string(mult) +
+                               " is greater than bytes " + std::to_string(val));
+
+    size_t result = val;
+    if (val % mult != 0) {
+      result = ((val / mult) + 1) * mult;
+    }
+    return result;
+  }
+
   /** @brief Rounds bytes to the multiple of mult greater than it */
-  inline constexpr auto round_bytes(auto bytes, auto mult) -> decltype(bytes) {
+  [[deprecated("Use round_up() instead")]] inline constexpr auto
+  round_bytes(auto bytes, auto mult) -> decltype(bytes) {
     if (mult > bytes)
       throw std::runtime_error("Mult " + std::to_string(mult) +
                                " is greater than bytes " +

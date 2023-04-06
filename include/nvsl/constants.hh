@@ -13,8 +13,7 @@
 
 namespace nvsl {
   /** @brief Enum to help with size of things */
-  enum LP_SZ : size_t
-  {
+  enum SZ : size_t {
     B = 1,
     KiB = 1024 * B,
     MiB = 1024 * KiB,
@@ -30,5 +29,7 @@ namespace nvsl {
     any_unit
   };
 
-  constexpr size_t CL_SIZE = 64 * LP_SZ::B;
+  constexpr size_t CL_SIZE = 64 * SZ::B;
+  constexpr size_t SMALL_PG_SZ = 4 * SZ::KiB;
+  constexpr size_t LARGE_PG_SZ = 2 * SZ::MiB;
 } // namespace nvsl
