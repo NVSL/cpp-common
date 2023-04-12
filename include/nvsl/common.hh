@@ -133,9 +133,9 @@ struct DBGH {
   DBGH(const DBGH &obj) { this->enabled = obj.enabled; }
 
 #ifndef RELEASE
-  DBGH(uint8_t lvl, const char *caller = __builtin_FUNCTION()) {
+  explicit DBGH(uint8_t lvl, const char *caller = __builtin_FUNCTION()) {
 #else
-  DBGH(uint8_t lvl) {
+  explicit DBGH(uint8_t lvl) {
 #endif
 
 #ifndef RELEASE

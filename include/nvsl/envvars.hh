@@ -57,6 +57,8 @@ static inline char *get_env_str(const char *var, const char *def) {
     result = val;
   }
 
+  (void)def;
+
   return result;
 }
 
