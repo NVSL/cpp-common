@@ -15,8 +15,9 @@
 
 namespace nvsl {
   /** @brief Split string using a delimeter into a vector of strings */
-  inline auto split(const std::string &str, const std::string &delim,
-                    size_t assert_length = UINT64_MAX) {
+  inline std::vector<std::string> split(const std::string &str,
+                                        const std::string &delim,
+                                        size_t assert_length = UINT64_MAX) {
     std::vector<std::string> result;
     size_t prev = 0, pos = 0;
 
@@ -62,7 +63,7 @@ namespace nvsl {
   }
 
   /** @brief Checks if a string is prefix of another string */
-  inline auto is_prefix(const std::string &prefix, const std::string &str) {
+  inline bool is_prefix(const std::string &prefix, const std::string &str) {
     auto mismatch =
         std::mismatch(prefix.begin(), prefix.end(), str.begin()).first;
     return mismatch == prefix.end();
