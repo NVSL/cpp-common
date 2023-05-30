@@ -8,13 +8,23 @@
 
 #pragma once
 
-#include <unistd.h>
-#include <string>
-#include <vector>
-#include <sys/mman.h>
 #include <sstream>
+#include <string>
+#include <sys/mman.h>
+#include <unistd.h>
+#include <vector>
 
 #include "string.hh"
+
+#ifndef MAP_SHARED_VALIDATE
+#define MAP_SHARED_VALIDATE \
+  0x03 // Works on x86, might not be compatible with
+       // other platforms
+#endif
+
+#ifndef MAP_SYNC
+#define MAP_SYNC 0x080000
+#endif
 
 namespace nvsl {
   inline std::string mmap_to_str(void *addr, size_t len, int prot, int flags,
