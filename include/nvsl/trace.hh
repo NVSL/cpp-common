@@ -8,6 +8,7 @@
 
 #pragma once
 
+#include <algorithm>
 #include <linux/prctl.h>
 #include <string>
 #include <sys/prctl.h>

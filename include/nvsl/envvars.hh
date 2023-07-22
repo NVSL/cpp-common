@@ -50,14 +50,12 @@ static inline bool get_env_val(const char *var) {
  * @param[in] def Default value to return if unset
  */
 static inline char *get_env_str(const char *var, const char *def) {
-  char *result = (char *)"";
+  char *result = (char *)def;
 
   char *val = getenv(var);
   if (val != NULL) {
     result = val;
   }
-
-  (void)def;
 
   return result;
 }

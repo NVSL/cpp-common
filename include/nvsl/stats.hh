@@ -18,13 +18,18 @@
 #include <filesystem>
 #include <ios>
 #include <map>
+#include <mutex>
 #include <numeric>
 #include <sstream>
 #include <string>
 #include <vector>
 
+#include "nvsl/envvars.hh"
+
+NVSL_DECL_ENV(NVSL_STAT_DUMP_PERIOD);
+
 namespace nvsl {
-  constexpr size_t STAT_DUMP_PERIOD = 1024; // # Samples
+  static size_t STAT_DUMP_PERIOD = 16 * 1024UL; // # Samples
 #ifdef NVSL_PERIODIC_STAT_DUMP
   constexpr bool periodic_stat_dump = true;
 #else
@@ -64,6 +69,11 @@ namespace nvsl {
         StatsCollection::stats->push_back(this);
 #endif
       }
+
+      const auto stat_dump_prd_def = std::to_string(STAT_DUMP_PERIOD);
+      const auto stat_dump_prd_str =
+          get_env_str(NVSL_STAT_DUMP_PERIOD_ENV, stat_dump_prd_def);
+      STAT_DUMP_PERIOD = std::stoul(stat_dump_prd_str);
     };
 
     void init(const std::string &name, const std::string &desc) {
@@ -114,8 +124,9 @@ namespace nvsl {
   class StatsFreq : public StatsBase {
   private:
     size_t bucket_cnt;
-    T bucket_min, bucket_max, bucket_sz;
+    T bucket_min, bucket_max, bucket_sz, sum;
     size_t *counts, underflow_cnt, overflow_cnt;
+    std::mutex lock;
 
   public:
     StatsFreq(bool reg = true) : StatsBase(reg){};
@@ -150,6 +161,7 @@ namespace nvsl {
       this->bucket_sz = (bucket_max - bucket_min) / bucket_cnt;
       this->underflow_cnt = 0;
       this->overflow_cnt = 0;
+      this->sum = 0;
 
       this->counts = new size_t[bucket_cnt];
       memset(counts, 0, sizeof(counts[0]) * bucket_cnt);
@@ -161,6 +173,8 @@ namespace nvsl {
      * @param[in] count=1 Number of times to add this value to the map
      */
     void add(T val, size_t count = 1) {
+      std::lock_guard<std::mutex> _auto_mutex(lock);
+
       if (val < bucket_min) {
         underflow_cnt++;
       } else if (val >= bucket_max) {
@@ -170,6 +184,7 @@ namespace nvsl {
         counts[bucket_idx]++;
       }
 
+      this->sum += val;
       this->notify_sample();
     }
 
@@ -214,13 +229,17 @@ namespace nvsl {
          << "\n"
          << stat_name + ".bucket_size: " << bucket_sz << "\t# " + stat_desc
          << "\n"
+         << stat_name + ".mean: " << sum / total() << "\t# " + stat_desc << "\n"
          << stat_name + ".underflow_count: " << underflow_cnt
          << "\t# " + stat_desc << "\n"
          << stat_name + ".overflow_count: " << overflow_cnt
          << "\t# " + stat_desc << "\n";
 
       for (size_t i = 0; i < bucket_cnt; i++) {
-        ss << stat_name + ".bucket[" << i << "]: " << counts[i] << std::endl;
+        const T bkt_lo = bucket_min + i * bucket_sz;
+        const T bkt_hi = bucket_min + (i + 1) * bucket_sz;
+        ss << stat_name + ".bucket[" << bkt_lo << ":" << bkt_hi
+           << "]: " << counts[i] << std::endl;
       }
 
       return ss.str();
