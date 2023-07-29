@@ -296,6 +296,7 @@ namespace nvsl {
     double total;
     size_t count;
     double max_v = -DBL_MAX;
+    double min_v = DBL_MAX;
 
     bool is_time;
     time_unit unit;
@@ -312,6 +313,7 @@ namespace nvsl {
 
     friend StatsScalar operator+(StatsScalar lhs, const auto rhs) {
       lhs.max_v = std::max((double)rhs, lhs.max_v);
+      lhs.min_v = std::min((double)rhs, lhs.min_v);
       lhs.total += rhs;
       lhs.count++;
 
@@ -321,6 +323,7 @@ namespace nvsl {
 
     StatsScalar &operator+=(const auto rhs) {
       this->max_v = std::max((double)rhs, this->max_v);
+      this->min_v = std::min((double)rhs, this->min_v);
       this->total += rhs;
       this->count++;
 
@@ -332,6 +335,7 @@ namespace nvsl {
       this->count = 0;
       this->total = 0;
       this->max_v = -DBL_MAX;
+      this->min_v = DBL_MAX;
     }
 
     /** @brief Get the average value per operation */
@@ -401,12 +405,24 @@ namespace nvsl {
       return result;
     };
 
-    double max() {
+    double max() const {
       if (this->max_v == -DBL_MAX) {
         return 0;
       } else {
         return this->max_v;
       }
+    }
+
+    double min() const {
+      if (this->min_v == DBL_MAX) {
+        return 0;
+      } else {
+        return this->min_v;
+      }
+    }
+
+    size_t counts() const {
+      return count;
     }
   };
 
