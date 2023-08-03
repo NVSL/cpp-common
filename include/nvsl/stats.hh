@@ -77,8 +77,6 @@ namespace nvsl {
     };
 
     void init(const std::string &name, const std::string &desc) {
-      assert(this != nullptr && "init() called on null object");
-
       this->stat_name = name;
       this->stat_desc = desc;
     }
