@@ -22,9 +22,9 @@ static inline std::string print_stuff__(std::string msg, std::string dec) {
 }
 
 /** @brief Convert errno to exception */
-#define PERROR_EXCEPTION(errcode, msg)                         \
-  ([]() { DBGE << msg << std::endl; }(), nvsl::dump_maps(),    \
-   nvsl::print_trace(),                                        \
+#define PERROR_EXCEPTION(errcode, msg)                                 \
+  ([&]() { DBGE << msg << ": " << strerror(errcode) << std::endl; }(), \
+   nvsl::dump_maps(), nvsl::print_trace(),                             \
    std::system_error(errcode, std::generic_category()))
 
 /** @brief Throw exception with msg if val is NULL */
@@ -40,7 +40,7 @@ static inline std::string print_stuff__(std::string msg, std::string dec) {
 
 #ifdef RELEASE
 /** @brief Throw exception with msg if val is NULL */
-#define NVSL_ERROR(msg)         \
+#define NVSL_ERROR(msg)       \
   do {                        \
     DBGE << msg << std::endl; \
     exit(1);                  \
@@ -50,19 +50,19 @@ static inline std::string print_stuff__(std::string msg, std::string dec) {
 #define NVSL_ERROR(msg) NVSL_ERROR_CLEAN(msg)
 #else
 /** @brief Throw exception with msg if val is NULL */
-#define NVSL_ERROR(msg)                                  \
-  do {                                                   \
-    DBGE << msg << std::endl;                            \
-    if (not get_env_val(NVSL_NO_STACKTRACE_ENV)) {       \
-      nvsl::dump_maps();                                 \
-      nvsl::print_trace();                               \
-    }                                                    \
-    exit(1);                                             \
+#define NVSL_ERROR(msg)                            \
+  do {                                             \
+    DBGE << msg << std::endl;                      \
+    if (not get_env_val(NVSL_NO_STACKTRACE_ENV)) { \
+      nvsl::dump_maps();                           \
+      nvsl::print_trace();                         \
+    }                                              \
+    exit(1);                                       \
   } while (0);
 #endif // RELEASE
 
 /** @brief Exit with no debugging info */
-#define NVSL_ERROR_CLEAN(msg)   \
+#define NVSL_ERROR_CLEAN(msg) \
   do {                        \
     DBGE << msg << std::endl; \
     exit(1);                  \
