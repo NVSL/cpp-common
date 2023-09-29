@@ -17,7 +17,10 @@
 
 namespace nvsl {
   /** @brief Dump virtual memory mappings to a file */
-  __attribute__((visibility(("default")))) inline void dump_maps() {}
+  __attribute__((visibility(("default")))) inline void dump_maps() {
+    const std::string pmap_cmd = "pmap " + std::to_string(getpid());
+    system(pmap_cmd.c_str());
+  }
 
   /** @brief Return current stack trace from gdb as std::string */
   static inline std::string get_stack_trace() {
