@@ -19,7 +19,10 @@ namespace nvsl {
   /** @brief Dump virtual memory mappings to a file */
   __attribute__((visibility(("default")))) inline void dump_maps() {
     const std::string pmap_cmd = "pmap " + std::to_string(getpid());
-    system(pmap_cmd.c_str());
+    const int ret = system(pmap_cmd.c_str());
+    if (ret != 0) {
+      std::cerr << "Failed to dump memory mappings" << std::endl;
+    }
   }
 
   /** @brief Return current stack trace from gdb as std::string */
