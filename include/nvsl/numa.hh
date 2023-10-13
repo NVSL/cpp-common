@@ -13,8 +13,9 @@
 
 static inline int numa_node_of_page(void *page) {
   int result;
-  const auto err =
+  const auto _ =
       numa_move_pages(getpid(), 1, (void **)&page, nullptr, &result, 0);
+  (void)_;
 
   return result;
 }
