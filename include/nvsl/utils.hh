@@ -27,6 +27,13 @@
 #endif
 
 namespace nvsl {
+  inline std::string mlock_to_str(void *addr, size_t len) {
+    const auto params_v = {S(addr), S(len)};
+    const auto params = zip(params_v, ", ");
+
+    return "mlock(" + params + ")";
+  }
+
   inline std::string mmap_to_str(void *addr, size_t len, int prot, int flags,
                                  int fd, off_t off) {
     std::vector<std::string> flags_v;
