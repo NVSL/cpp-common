@@ -40,9 +40,7 @@ namespace nvsl {
   concept Integral = std::is_integral<T>::value;
 
   template <typename T, typename I>
-  concept Averageable = Integral<I> && requires(T a, T b, I c) {
-    (a + b) / c;
-  };
+  concept Averageable = Integral<I> && requires(T a, T b, I c) { (a + b) / c; };
 
   /** @brief Class to track all the stats in a process */
   class StatsBase;
@@ -71,8 +69,7 @@ namespace nvsl {
       }
 
       const auto stat_dump_prd_def = std::to_string(STAT_DUMP_PERIOD);
-      const auto stat_dump_prd_str =
-          get_env_str(NVSL_STAT_DUMP_PERIOD_ENV, stat_dump_prd_def);
+      const auto stat_dump_prd_str = get_env_str(NVSL_STAT_DUMP_PERIOD_ENV, stat_dump_prd_def);
       STAT_DUMP_PERIOD = std::stoul(stat_dump_prd_str);
     };
 
@@ -102,8 +99,7 @@ namespace nvsl {
         if (sample_count++ > STAT_DUMP_PERIOD) {
           const std::filesystem::path STAT_DUMP_DIR("/tmp/");
           const auto ofstream_flags = std::ios::out | std::ios::trunc;
-          std::ofstream dump_file(STAT_DUMP_DIR / this->dump_file_name(),
-                                  ofstream_flags);
+          std::ofstream dump_file(STAT_DUMP_DIR / this->dump_file_name(), ofstream_flags);
 
           dump_file << "name: \"" << this->stat_name << "\"" << std::endl
                     << "desc: \"" << this->stat_desc << "\"" << std::endl
@@ -139,16 +135,14 @@ namespace nvsl {
      * @param bucket_min Minimum value of the bucket
      * @param bucket_max Maximum value of the bucket
      */
-    void init(const std::string &name, const std::string &desc,
-              size_t bucket_cnt, T bucket_min, T bucket_max) {
+    void init(const std::string &name, const std::string &desc, size_t bucket_cnt, T bucket_min,
+              T bucket_max) {
 #if defined(DBGE)
       NVSL_ASSERT(bucket_cnt != 0, "Bucket size cannot be zero");
-      NVSL_ASSERT(bucket_max > bucket_min,
-                  "Bucket max cannot be smaller than bucket min");
+      NVSL_ASSERT(bucket_max > bucket_min, "Bucket max cannot be smaller than bucket min");
 #else
       assert(bucket_cnt != 0 && "Bucket size cannot be zero");
-      assert(bucket_max > bucket_min &&
-             "Bucket max cannot be smaller than bucket min");
+      assert(bucket_max > bucket_min && "Bucket max cannot be smaller than bucket min");
 #endif // DBGE
 
       StatsBase::init(name, desc);
@@ -191,8 +185,7 @@ namespace nvsl {
      * @return Total number of samples
      */
     size_t total() const {
-      return underflow_cnt + overflow_cnt +
-             std::accumulate(counts, counts + bucket_cnt, 0);
+      return underflow_cnt + overflow_cnt + std::accumulate(counts, counts + bucket_cnt, 0);
     }
 
     /**
@@ -210,8 +203,7 @@ namespace nvsl {
      * enabled)
      */
     size_t uoflow_count(bool underflow_cnt, bool overflow_cnt) const {
-      return (underflow_cnt ? this->underflow_cnt : 0) +
-             (overflow_cnt ? this->overflow_cnt : 0);
+      return (underflow_cnt ? this->underflow_cnt : 0) + (overflow_cnt ? this->overflow_cnt : 0);
     }
 
     /**
@@ -219,25 +211,18 @@ namespace nvsl {
      */
     std::string str() const {
       std::stringstream ss;
-      ss << stat_name + ".bucket_count: " << bucket_cnt << "\t# " + stat_desc
-         << "\n"
-         << stat_name + ".bucket_min: " << bucket_min << "\t# " + stat_desc
-         << "\n"
-         << stat_name + ".bucket_max: " << bucket_max << "\t# " + stat_desc
-         << "\n"
-         << stat_name + ".bucket_size: " << bucket_sz << "\t# " + stat_desc
-         << "\n"
+      ss << stat_name + ".bucket_count: " << bucket_cnt << "\t# " + stat_desc << "\n"
+         << stat_name + ".bucket_min: " << bucket_min << "\t# " + stat_desc << "\n"
+         << stat_name + ".bucket_max: " << bucket_max << "\t# " + stat_desc << "\n"
+         << stat_name + ".bucket_size: " << bucket_sz << "\t# " + stat_desc << "\n"
          << stat_name + ".mean: " << sum / total() << "\t# " + stat_desc << "\n"
-         << stat_name + ".underflow_count: " << underflow_cnt
-         << "\t# " + stat_desc << "\n"
-         << stat_name + ".overflow_count: " << overflow_cnt
-         << "\t# " + stat_desc << "\n";
+         << stat_name + ".underflow_count: " << underflow_cnt << "\t# " + stat_desc << "\n"
+         << stat_name + ".overflow_count: " << overflow_cnt << "\t# " + stat_desc << "\n";
 
       for (size_t i = 0; i < bucket_cnt; i++) {
         const T bkt_lo = bucket_min + i * bucket_sz;
         const T bkt_hi = bucket_min + (i + 1) * bucket_sz;
-        ss << stat_name + ".bucket[" << bkt_lo << ":" << bkt_hi
-           << "]: " << counts[i] << std::endl;
+        ss << stat_name + ".bucket[" << bkt_lo << ":" << bkt_hi << "]: " << counts[i] << std::endl;
       }
 
       return ss.str();
@@ -252,9 +237,7 @@ namespace nvsl {
   public:
     Counter(bool reg = true) : StatsBase(reg), counter(0){};
 
-    void init(const std::string &name, const std::string &desc) {
-      StatsBase::init(name, desc);
-    }
+    void init(const std::string &name, const std::string &desc) { StatsBase::init(name, desc); }
 
     Counter &operator++() {
       this->counter++;
@@ -302,8 +285,8 @@ namespace nvsl {
   public:
     StatsScalar(bool reg = true) : StatsBase(reg), total(0), count(0){};
 
-    void init(const std::string &name, const std::string &desc,
-              bool is_time = false, time_unit unit = time_unit::any_unit) {
+    void init(const std::string &name, const std::string &desc, bool is_time = false,
+              time_unit unit = time_unit::any_unit) {
       StatsBase::init(name, desc);
       this->is_time = is_time;
       this->unit = unit;
@@ -419,9 +402,7 @@ namespace nvsl {
       }
     }
 
-    size_t counts() const {
-      return count;
-    }
+    size_t counts() const { return count; }
   };
 
   /** @brief Represents a vector of stats, each with a name */
@@ -473,13 +454,14 @@ namespace nvsl {
     }
   };
 
-  inline StatsCollection::~StatsCollection() { dump_stats(); }
+  inline StatsCollection::~StatsCollection() {
+    dump_stats();
+  }
 
   inline void StatsCollection::dump_stats() {
     if (get_env_val(NVSL_GEN_STATS_ENV)) {
       std::cout << std::endl
-                << "==== " << StatsCollection::stats->size()
-                << " Stats ====" << std::endl;
+                << "==== " << StatsCollection::stats->size() << " Stats ====" << std::endl;
       for (const auto stat : *StatsCollection::stats) {
         fprintf(stdout, "%s\n", stat->str().c_str());
         fprintf(stderr, "%s\n", stat->latex().c_str());
