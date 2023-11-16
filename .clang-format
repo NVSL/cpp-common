@@ -1,0 +1,27 @@
+IndentWidth: 2
+Language: Cpp
+ColumnLimit: 80
+
+AllowShortFunctionsOnASingleLine: Inline
+IndentPPDirectives: BeforeHash
+
+AlignEscapedNewlines: Left
+AllowShortIfStatementsOnASingleLine: WithoutElse
+
+# Configure indentation
+NamespaceIndentation: All
+IndentCaseBlocks: True
+
+# Template declarations on a new line
+AlwaysBreakTemplateDeclarations: Yes
+
+AllowShortEnumsOnASingleLine: false
+BraceWrapping:
+  AfterEnum: false
+
+# Align stuff
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+
+# Do not indent preprocessing directives
+IndentPPDirectives: None
