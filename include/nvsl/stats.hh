@@ -63,13 +63,13 @@ namespace nvsl {
     StatsBase(bool reg) {
       if (reg) {
 #ifdef NVSL_ENABLE_COLLECTION_REGISTRATION
-        fprintf(stderr, "Registering stat %p\n", (void *)this);
         StatsCollection::stats->push_back(this);
 #endif
       }
 
       const auto stat_dump_prd_def = std::to_string(STAT_DUMP_PERIOD);
-      const auto stat_dump_prd_str = get_env_str(NVSL_STAT_DUMP_PERIOD_ENV, stat_dump_prd_def);
+      const auto stat_dump_prd_str =
+          get_env_str(NVSL_STAT_DUMP_PERIOD_ENV, stat_dump_prd_def);
       STAT_DUMP_PERIOD = std::stoul(stat_dump_prd_str);
     };
 
