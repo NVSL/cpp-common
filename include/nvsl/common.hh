@@ -146,6 +146,9 @@ struct DBGH {
 #ifdef NVSL_SIMPLIFIED_TERM_IO
       DBG << lp_cur_time_str() << " | ";
 #else
+#ifdef NVSL_TRACE_APP_NAME
+      DBG << "[" << std::setw(10) << std::string(NVSL_TRACE_APP_NAME) << "]";
+#endif
       DBG << "[\x1B[1m" << std::setw(20) << std::string(caller) << "()"
           << "\x1B[0m"
           << "]:" << (int)lvl << " ";
@@ -164,17 +167,17 @@ struct DBGH {
                                 std::ostream &(*f)(std::ios_base &));
 };
 
-template <typename T>
-inline const DBGH &operator<<(const DBGH &dbgh, const T &obj) {
-  if (dbgh.enabled) {
-    DBG << obj;
+  template <typename T>
+  inline const DBGH &operator<<(const DBGH &dbgh, const T &obj) {
+    if (dbgh.enabled) {
+      DBG << obj;
+    }
+
+    return dbgh;
   }
 
-  return dbgh;
-}
-
-inline const DBGH &operator<<(const DBGH &s,
-                              std::ostream &(*f)(std::ostream &)) {
+  inline const DBGH &operator<<(const DBGH &s,
+                                std::ostream &(*f)(std::ostream &)) {
 #ifndef RELEASE
   if (s.enabled) f(DBG);
 #endif
@@ -222,6 +225,12 @@ inline const DBGH &operator<<(const DBGH &s,
 /* Log error to stderr with decorator */
 #ifdef NVSL_SIMPLIFIED_TERM_IO
 #define DBGE (DBG << "ERROR: \x1B[0m")
+#elif defined(NVSL_TRACE_APP_NAME)
+#define DBGE                                                                \
+  (DBG << "[" << std::setw(10) << std::string(NVSL_TRACE_APP_NAME) << "]"   \
+       << "[\x1B[31m" << std::setw(20) << std::string(__FUNCTION__) << "()" \
+       << "\x1B[0m"                                                         \
+       << "]\x1B[95m ERROR: \x1B[0m")
 #else
 #define DBGE                                                                \
   (DBG << "[\x1B[31m" << std::setw(20) << std::string(__FUNCTION__) << "()" \
