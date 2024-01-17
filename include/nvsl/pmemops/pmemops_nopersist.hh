@@ -24,21 +24,21 @@ inline void nvsl::PMemOpsNoPersist::flush(void *base, size_t size) const {
 
 inline void nvsl::PMemOpsNoPersist::drain() const {}
 
-inline void nvsl::PMemOpsNoPersist::memcpy(void *dest, void *src, size_t size)
-  const {
+inline void nvsl::PMemOpsNoPersist::memcpy(void *dest, void *src,
+                                           size_t size) const {
   DBGH(4) << "MEMCPY :: pmemdest " << (void *)(dest) << " src " << (void *)(src)
           << " len " << size << std::endl;
 
   this->memmove(dest, src, size);
 }
 
-inline void nvsl::PMemOpsNoPersist::memmove(void *dest, void *src, size_t size)
-  const {
+inline void nvsl::PMemOpsNoPersist::memmove(void *dest, void *src,
+                                            size_t size) const {
   std::memmove(dest, src, size);
 }
 
-inline void nvsl::PMemOpsNoPersist::memset(void *base, char c, size_t size)
-  const {
+inline void nvsl::PMemOpsNoPersist::memset(void *base, char c,
+                                           size_t size) const {
   DBGH(4) << "MEMSET :: start " << (void *)(base) << " size " << (void *)(size)
           << " char " << c << std::endl;
 

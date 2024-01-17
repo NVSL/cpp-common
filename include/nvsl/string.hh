@@ -70,21 +70,27 @@ namespace nvsl {
   }
 
   template <typename T>
-  inline const std::string S(T val) { return std::to_string(val); }
+  inline const std::string S(T val) {
+    return std::to_string(val);
+  }
 
   template <>
-  inline const std::string S(void* val) { 
+  inline const std::string S(void *val) {
     std::stringstream ss;
     ss << val;
     return ss.str();
   }
 
   template <>
-  inline const std::string S(const char *c) { return std::string(c); }
+  inline const std::string S(const char *c) {
+    return std::string(c);
+  }
 
   template <>
-  inline const std::string S(char *c) { return std::string(c); }
-  
+  inline const std::string S(char *c) {
+    return std::string(c);
+  }
+
   inline std::string ltrim(const std::string &str) {
     const auto start = str.find_first_not_of(" \t\n");
 
@@ -106,5 +112,7 @@ namespace nvsl {
     return std::regex_replace(str, std::regex(substr), replacement);
   }
 
-  inline std::string trim(const std::string &str) { return ltrim(rtrim(str)); }
+  inline std::string trim(const std::string &str) {
+    return ltrim(rtrim(str));
+  }
 } // namespace nvsl

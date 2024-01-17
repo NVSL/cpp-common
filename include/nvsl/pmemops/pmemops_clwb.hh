@@ -165,7 +165,7 @@ inline void nvsl::PMemOpsClwb::flush(void *base, size_t size) const {
     this->clwb((void *)uptr);
 #else
     NVSL_ERROR("This version of libpuddles was built on a platform "
-             "that doesn't support clwb");
+               "that doesn't support clwb");
 #endif
   }
 }
@@ -175,18 +175,20 @@ inline void nvsl::PMemOpsClwb::drain() const {
   _mm_sfence();
 #else
   NVSL_ERROR("This version of libpuddles was built on a platform "
-           "that doesn't support sfence");
+             "that doesn't support sfence");
 #endif
 }
 
-inline void nvsl::PMemOpsClwb::memcpy(void *dest, void *src, size_t size) const {
+inline void nvsl::PMemOpsClwb::memcpy(void *dest, void *src,
+                                      size_t size) const {
   DBGH(4) << "MEMCPY :: pmemdest " << (void *)(dest) << " src " << (void *)(src)
           << " len " << size << std::endl;
 
   this->memmove(dest, src, size);
 }
 
-inline void nvsl::PMemOpsClwb::memmove(void *dest, void *src, size_t size) const {
+inline void nvsl::PMemOpsClwb::memmove(void *dest, void *src,
+                                       size_t size) const {
   std::memmove(dest, src, size);
 
   flush(dest, size);

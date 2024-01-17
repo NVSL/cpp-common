@@ -24,14 +24,16 @@ inline void nvsl::PMemOpsMsync::drain() const {
   /* Do nothing */
 }
 
-inline void nvsl::PMemOpsMsync::memcpy(void *dest, void *src, size_t size) const {
+inline void nvsl::PMemOpsMsync::memcpy(void *dest, void *src,
+                                       size_t size) const {
   DBGH(4) << "MEMCPY :: pmemdest " << (void *)(dest) << " src " << (void *)(src)
           << " len " << size << std::endl;
 
   this->memmove(dest, src, size);
 }
 
-inline void nvsl::PMemOpsMsync::memmove(void *dest, void *src, size_t size) const {
+inline void nvsl::PMemOpsMsync::memmove(void *dest, void *src,
+                                        size_t size) const {
   std::memmove(dest, src, size);
 
   this->flush(dest, size);

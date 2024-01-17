@@ -3,7 +3,6 @@ Language: Cpp
 ColumnLimit: 80
 
 AllowShortFunctionsOnASingleLine: Inline
-IndentPPDirectives: BeforeHash
 
 AlignEscapedNewlines: Left
 AllowShortIfStatementsOnASingleLine: WithoutElse

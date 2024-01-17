@@ -27,8 +27,7 @@ namespace nvsl {
     const size_t s = ns_total / (1000000000);
     const size_t ms = (ns_total - s * 1000000000) / (1000000);
     const size_t us = (ns_total - s * 1000000000 - ms * 1000000) / (1000);
-    const size_t ns =
-        (ns_total - s * 1000000000 - ms * 1000000 - us * 1000);
+    const size_t ns = (ns_total - s * 1000000000 - ms * 1000000 - us * 1000);
 
     ss << s << "s " << ms << "ms " << us << "us " << ns << "ns";
 
@@ -46,12 +45,11 @@ namespace nvsl {
     size_t events = 0;
 
     /**< Total number of values to store */
-    static constexpr size_t RAW_VAL_CNT = 1024*1024*100;
+    static constexpr size_t RAW_VAL_CNT = 1024 * 1024 * 100;
+
   public:
-    Clock() {
-      raw_values.reserve(RAW_VAL_CNT);
-    }
-    
+    Clock() { raw_values.reserve(RAW_VAL_CNT); }
+
     /** @brief Start the timer */
     void tick() {
       running = true;
@@ -73,12 +71,14 @@ namespace nvsl {
       }
 
       running = false;
-      const auto elapsed = duration_cast<nanoseconds>(end_clk - start_clk).count();
+      const auto elapsed =
+          duration_cast<nanoseconds>(end_clk - start_clk).count();
       this->total_ns += elapsed;
 
-#define OVERFLOW_MSG "Raw values buffer overflow, increase array size or " \
-        "operations/loop"
-#if defined(NVSL_ASSERT) && defined(DBGE)      
+#define OVERFLOW_MSG                                    \
+  "Raw values buffer overflow, increase array size or " \
+  "operations/loop"
+#if defined(NVSL_ASSERT) && defined(DBGE)
       NVSL_ASSERT(this->raw_values.size() < RAW_VAL_CNT, OVERFLOW_MSG);
 #else
       if (this->raw_values.size() > RAW_VAL_CNT) {
@@ -136,10 +136,10 @@ namespace nvsl {
         assert(0 && "Clock not reconciled. Call reconcile()");
 #endif
       }
-      
+
       const auto sz = sorted_raw_values.size();
-      const auto idx = std::max(0UL, (size_t)((sz*pc)/100.0)-1);
-      
+      const auto idx = std::max(0UL, (size_t)((sz * pc) / 100.0) - 1);
+
       return sorted_raw_values[idx];
     }
 
@@ -156,8 +156,8 @@ namespace nvsl {
 #else
       assert(total_ops != 0 && "Total ops cannot be zero");
 #endif
-      
-      size_t ops_per_iter = total_ops/raw_values.size();
+
+      size_t ops_per_iter = total_ops / raw_values.size();
       ss << this->summarize()
          << "ops/s: " << (total_ops * (1000000000)) / ((double)this->ns())
          << "\ntime/op: "
@@ -165,11 +165,11 @@ namespace nvsl {
          << "\nns/op: " << (this->ns() / (double)total_ops);
       if (distribution) {
         ss << "\np50/op: "
-           << ns_to_hr_clk((size_t)(this->percentile(50))/ops_per_iter)
+           << ns_to_hr_clk((size_t)(this->percentile(50)) / ops_per_iter)
            << "\np90/op: "
-           << ns_to_hr_clk((size_t)(this->percentile(90))/ops_per_iter)
+           << ns_to_hr_clk((size_t)(this->percentile(90)) / ops_per_iter)
            << "\np99/op: "
-           << ns_to_hr_clk((size_t)(this->percentile(99))/ops_per_iter)
+           << ns_to_hr_clk((size_t)(this->percentile(99)) / ops_per_iter)
            << "\ntime/op: "
            << ns_to_hr_clk((size_t)(this->ns() / (double)total_ops));
       }

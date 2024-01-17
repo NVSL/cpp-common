@@ -3,7 +3,7 @@
 /**
  * @file   definitions.hh
  * @date   mars 29, 2022
- * @brief  All declarations for the pmemops class 
+ * @brief  All declarations for the pmemops class
  */
 
 #pragma once

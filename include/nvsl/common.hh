@@ -167,17 +167,17 @@ struct DBGH {
                                 std::ostream &(*f)(std::ios_base &));
 };
 
-  template <typename T>
-  inline const DBGH &operator<<(const DBGH &dbgh, const T &obj) {
-    if (dbgh.enabled) {
-      DBG << obj;
-    }
-
-    return dbgh;
+template <typename T>
+inline const DBGH &operator<<(const DBGH &dbgh, const T &obj) {
+  if (dbgh.enabled) {
+    DBG << obj;
   }
 
-  inline const DBGH &operator<<(const DBGH &s,
-                                std::ostream &(*f)(std::ostream &)) {
+  return dbgh;
+}
+
+inline const DBGH &operator<<(const DBGH &s,
+                              std::ostream &(*f)(std::ostream &)) {
 #ifndef RELEASE
   if (s.enabled) f(DBG);
 #endif
