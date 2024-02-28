@@ -36,12 +36,6 @@ namespace nvsl {
   constexpr bool periodic_stat_dump = false;
 #endif
 
-  template <class T>
-  concept Integral = std::is_integral<T>::value;
-
-  template <typename T, typename I>
-  concept Averageable = Integral<I> && requires(T a, T b, I c) { (a + b) / c; };
-
   /** @brief Class to track all the stats in a process */
   class StatsBase;
   class StatsCollection {
