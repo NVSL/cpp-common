@@ -159,7 +159,8 @@ namespace nvsl {
 
       size_t ops_per_iter = total_ops / raw_values.size();
       ss << this->summarize()
-         << "ops/s: " << (total_ops * (1000000000)) / ((double)this->ns())
+         << "ops: " << total_ops
+         << "\nops/s: " << (total_ops * (1000000000)) / ((double)this->ns())
          << "\ntime/op: "
          << ns_to_hr_clk((size_t)(this->ns() / (double)total_ops))
          << "\nns/op: " << (this->ns() / (double)total_ops);
