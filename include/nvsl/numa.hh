@@ -32,11 +32,22 @@ static inline void move_region_to_node(int node, void *start, size_t size,
     pages[i] = (void *)((char *)start + i * page_size);
   }
 
-  const auto err = numa_move_pages(getpid(), page_cnt, pages, nodes, status, 0);
+  const auto err = numa_move_pages(getpid(), page_cnt, pages, nodes, status, 
+                                   MPOL_MF_MOVE_ALL);
 
   if (err != 0) {
     std::cerr << "Warning: first page might not be on the target node. ";
     std::cerr << "Expected: " << node << ", got: " << status[0] << std::endl;
+  }
+
+  for (auto i = 0UL; i < page_cnt; i++) {
+    if (status[i] != node) {
+      std::cerr << "Warning: page " << i << " might not be on the target node. ";
+      std::cerr << "Expected: " << node << ", got: " << status[i] << std::endl;
+      std::cerr << "Not checking further pages." << std::endl;
+
+      break;
+    }
   }
 
   delete[] nodes;
