@@ -90,7 +90,7 @@ namespace nvsl {
      */
     void notify_sample() {
       if constexpr (periodic_stat_dump) {
-        if (sample_count++ > STAT_DUMP_PERIOD) {
+        if (sample_count++ % STAT_DUMP_PERIOD == 0) {
           const std::filesystem::path STAT_DUMP_DIR("/tmp/");
           const auto ofstream_flags = std::ios::out | std::ios::trunc;
           std::ofstream dump_file(STAT_DUMP_DIR / this->dump_file_name(),
@@ -210,7 +210,9 @@ namespace nvsl {
      */
     std::string str() const {
       std::stringstream ss;
-      ss << stat_name + ".bucket_count: " << bucket_cnt << "\t# " + stat_desc
+      ss << stat_name + ".sample_count: " << total() << "\t# " + stat_desc
+         << "\n"
+         << stat_name + ".bucket_count: " << bucket_cnt << "\t# " + stat_desc
          << "\n"
          << stat_name + ".bucket_min: " << bucket_min << "\t# " + stat_desc
          << "\n"
@@ -219,6 +221,8 @@ namespace nvsl {
          << stat_name + ".bucket_size: " << bucket_sz << "\t# " + stat_desc
          << "\n"
          << stat_name + ".mean: " << sum / total() << "\t# " + stat_desc << "\n"
+         << stat_name + ".mean_per_k: " << (sum / total()) / 1000
+         << "\t# " + stat_desc << " (= mean/1000)\n"
          << stat_name + ".underflow_count: " << underflow_cnt
          << "\t# " + stat_desc << "\n"
          << stat_name + ".overflow_count: " << overflow_cnt
