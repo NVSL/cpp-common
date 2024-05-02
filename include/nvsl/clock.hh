@@ -48,7 +48,10 @@ namespace nvsl {
     static constexpr size_t RAW_VAL_CNT = 1024 * 1024 * 100;
 
   public:
-    Clock() { raw_values.reserve(RAW_VAL_CNT); }
+    Clock(bool reserve_raw_vals = false) { 
+      if (reserve_raw_vals)
+        raw_values.reserve(RAW_VAL_CNT); 
+    }
 
     /** @brief Start the timer */
     void tick() {
