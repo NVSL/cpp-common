@@ -102,6 +102,9 @@ namespace nvsl {
     }
 
     size_t ns() const { return this->total_ns; }
+    size_t us() const { return this->total_ns / 1000; }
+    size_t ms() const { return this->total_ns / 1000000; }
+    size_t s() const { return this->total_ns / 1000000000; }
 
     /** @brief Total time elapsed */
     const std::string summarize() const {
