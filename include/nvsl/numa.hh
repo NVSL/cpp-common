@@ -36,6 +36,7 @@ static inline void move_region_to_node(int node, void *start, size_t size,
                                    MPOL_MF_MOVE_ALL);
 
   if (err != 0) {
+    std::cerr << "perror: " << strerror(errno) << std::endl;
     std::cerr << "Warning: first page might not be on the target node. ";
     std::cerr << "Expected: " << node << ", got: " << status[0] << std::endl;
   }
