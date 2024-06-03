@@ -152,6 +152,10 @@ inline void nvsl::PMemOpsClwb::clwb(void *addr) const {
   _mm_clwb(addr);
 }
 
+inline void nvsl::PMemOpsClwb::clflush(void *addr) const {
+  _mm_clflush(addr);
+}
+
 inline void nvsl::PMemOpsClwb::flush(void *base, size_t size) const {
   uintptr_t uptr;
 
@@ -167,6 +171,20 @@ inline void nvsl::PMemOpsClwb::flush(void *base, size_t size) const {
     NVSL_ERROR("This version of libpuddles was built on a platform "
                "that doesn't support clwb");
 #endif
+  }
+}
+
+/** @brief Evict the given range from the cache */
+inline void nvsl::PMemOpsClwb::evict(void *base, size_t size) const {
+  uintptr_t uptr;
+
+  /*
+   * Loop through cache-line-size (typically 64B) aligned chunks
+   * covering the given range.
+   */
+  for (uptr = (uintptr_t)base & ~(CL_SIZE - 1); uptr < (uintptr_t)base + size;
+       uptr += CL_SIZE) {
+    this->clflush((void *)uptr);
   }
 }
 

@@ -56,6 +56,9 @@ namespace nvsl {
     /** @brief Clwb on a single addr, to flush a range use flush() */
     void clwb(void *addr) const;
 
+    /** @brief Clflush on single addr, to evict a range, use evict() */
+    void clflush(void *addr) const;
+  
   public:
     void flush(void *base, size_t size) const;
     void persist(void *base, size_t size) const;
@@ -64,6 +67,7 @@ namespace nvsl {
     void memmove(void *dest, void *src, size_t size) const;
     void memset(void *base, char c, size_t size) const;
     void streaming_wr(void *dest, const void *src, size_t bytes) const;
+    void evict(void *base, size_t size) const;
   };
 
   class PMemOpsMsync : public PMemOps {

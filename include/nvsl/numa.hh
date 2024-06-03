@@ -11,6 +11,10 @@
 #include "numa.h"
 #include <unistd.h>
 
+#ifndef MPOL_MF_MOVE_ALL
+#define MPOL_MF_MOVE_ALL   (1<<2)
+#endif
+
 static inline int numa_node_of_page(void *page) {
   int result;
   const auto _ =
@@ -20,8 +24,10 @@ static inline int numa_node_of_page(void *page) {
   return result;
 }
 
-static inline void move_region_to_node(int node, void *start, size_t size,
+static inline bool move_region_to_node(int node, void *start, size_t size,
                                        size_t page_size = 4096) {
+  bool result = true;
+
   const auto page_cnt = size / page_size;
   int *nodes = new int[page_cnt];
   int *status = new int[page_cnt];
@@ -39,6 +45,8 @@ static inline void move_region_to_node(int node, void *start, size_t size,
     std::cerr << "perror: " << strerror(errno) << std::endl;
     std::cerr << "Warning: first page might not be on the target node. ";
     std::cerr << "Expected: " << node << ", got: " << status[0] << std::endl;
+
+    result = false;
   }
 
   for (auto i = 0UL; i < page_cnt; i++) {
@@ -47,6 +55,8 @@ static inline void move_region_to_node(int node, void *start, size_t size,
       std::cerr << "Expected: " << node << ", got: " << status[i] << std::endl;
       std::cerr << "Not checking further pages." << std::endl;
 
+      result = false;
+
       break;
     }
   }
@@ -54,4 +64,6 @@ static inline void move_region_to_node(int node, void *start, size_t size,
   delete[] nodes;
   delete[] status;
   delete[] pages;
+
+  return result;
 }
