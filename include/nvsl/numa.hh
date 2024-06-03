@@ -28,7 +28,7 @@ static inline bool move_region_to_node(int node, void *start, size_t size,
                                        size_t page_size = 4096) {
   bool result = true;
 
-  const auto page_cnt = size / page_size;
+  const auto page_cnt = size < page_size ? 1 : size / page_size;
   int *nodes = new int[page_cnt];
   int *status = new int[page_cnt];
   void **pages = new void *[page_cnt];
@@ -51,7 +51,8 @@ static inline bool move_region_to_node(int node, void *start, size_t size,
 
   for (auto i = 0UL; i < page_cnt; i++) {
     if (status[i] != node) {
-      std::cerr << "Warning: page " << i << " might not be on the target node. ";
+      std::cerr << "Warning: page " << i << " might not be on the target node. " << std::endl;
+      std::cerr << "perror: " << strerror(-status[i]) << std::endl;
       std::cerr << "Expected: " << node << ", got: " << status[i] << std::endl;
       std::cerr << "Not checking further pages." << std::endl;
 
