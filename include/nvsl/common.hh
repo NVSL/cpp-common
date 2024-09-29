@@ -39,6 +39,12 @@
 
 #define NVSL_END_IGNORE_WPEDANTIC _Pragma("GCC diagnostic pop")
 
+#define NVSL_BEGIN_IGNORE_DEPRECATED \
+  _Pragma("GCC diagnostic push")    \
+      _Pragma("GCC diagnostic ignored \"-Wdeprecated-declarations\"")
+
+#define NVSL_END_IGNORE_DEPRECATED _Pragma("GCC diagnostic pop")
+
 // Do magic! Creates a unique name using the line number
 #define NVSL_LINE_NAME(prefix) NVSL_JOIN(prefix, __LINE__)
 #define NVSL_JOIN(symbol1, symbol2) NVSL_DO_JOIN(symbol1, symbol2)
