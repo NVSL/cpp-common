@@ -141,4 +141,54 @@ namespace nvsl {
 
     return err_cnt;
   }
+
+  /**
+   * @brief Get the CPU utilization
+   * @return CPU utilization as a float between 0 and 1
+   */
+  inline float get_cpu_utilization() {
+    std::ifstream file("/proc/stat");
+    if (!file.is_open()) {
+        std::cerr << "Unable to open /proc/stat file.\n";
+        return -1.0;
+    }
+
+    std::string line;
+    std::getline(file, line);  // Read the first line (aggregate CPU data)
+    file.close();
+
+    // Parse the first line
+    std::istringstream ss(line);
+    std::string cpu;
+    long user, nice, system, idle, iowait, irq, softirq, steal;
+    ss >> cpu >> user >> nice >> system >> idle >> iowait >> irq >> softirq >> steal;
+
+    // Calculate total and idle time
+    long idleTime = idle + iowait;
+    long totalTime = user + nice + system + idle + iowait + irq + softirq + steal;
+
+    // Wait for a short interval to calculate difference in usage
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
+    // Re-open and re-read /proc/stat to get new data
+    file.open("/proc/stat");
+    if (!file.is_open()) {
+        std::cerr << "Unable to open /proc/stat file.\n";
+        return -1.0;
+    }
+    std::getline(file, line);
+    file.close();
+
+    // Parse the line again
+    std::istringstream ss2(line);
+    ss2 >> cpu >> user >> nice >> system >> idle >> iowait >> irq >> softirq >> steal;
+
+    // Recalculate total and idle time
+    long idleTime2 = idle + iowait;
+    long totalTime2 = user + nice + system + idle + iowait + irq + softirq + steal;
+
+    // Calculate utilization
+    float utilization = 1.0 - (float)(idleTime2 - idleTime) / (totalTime2 - totalTime);
+    return utilization;
+}
 } // namespace nvsl
